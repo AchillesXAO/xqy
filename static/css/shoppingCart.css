@@ -1,0 +1,234 @@
+.ware{
+	border-top: 2px solid black;
+	width: 100%;
+	min-width: 1190px;
+}
+
+.wareM{
+	width: 990px;
+	margin: 0 auto;
+}
+.wareM1{
+	width: 540px;
+	margin: 20px auto;
+}
+
+.wareM1 span{
+	margin-right: 150px;
+}
+.wareM1 span:last-child{
+	margin: 0;
+}
+
+.wareM2 {
+	text-align: center;
+	line-height: 58px;
+	height: 58px;
+	width: 992px;
+	background: rgb(238,238,238);
+}
+
+.wareM2 div{
+	margin-top: 5px;
+	line-height: 23px;
+	float: left;
+	width: 5%;
+}
+
+.wareM2 span{
+	display: inline-block;
+	float: left;
+}
+
+.one{
+	width: 43%;
+}
+
+.twe{
+	width: 16%;
+}
+
+.three{
+	width: 12%;
+}
+
+
+.wareM3{
+	border-bottom: 2px solid rgb(204,204,204);
+	width: 990px;
+	margin: 30px 0 15px 0 ;
+	padding-bottom: 15px;
+}
+
+.wareM4{
+	float: left;
+	width: 990px;
+	border: 1px solid rgb(238,238,238);
+}
+
+
+.wareM4 > div{
+	float: left;
+	height: 138px;
+}
+
+.wareM4_c1{
+	width: 5%;
+}
+
+.wareM4_c2{
+	width: 43%;
+}
+
+.wareM4_c2 img{
+	float: left;
+	border: 1px solid rgb(238,238,238);
+	height: 100px;
+	width: 100px;
+}
+
+.wareM4_c3{
+	width: 16%;
+}
+
+.wareM4_c4,.wareM4_c5,.wareM4_c6{
+	width: 12%;
+}
+
+.wareM4_c6{
+	cursor: pointer;
+}
+#clear{
+	height: 0px;
+	width: 0px;
+	clear: both;
+}
+
+.wareM4_c1{
+	line-height: 138px;
+	text-align: center;
+}
+
+
+.wareM4_c2 {
+	padding: 19px 0;
+}
+
+.mingchen{
+	width: 260px;
+	float: left;
+}
+
+.mingchen a{
+	margin-left: 5px;
+	font-size: 12px;
+	color: black;
+}
+
+.mingchen span{
+	margin-left: 5px;
+	margin-top: 20px;
+	font-size: 12px;
+	text-align: center;
+	line-height: 20px;
+	width: 40px;
+	height: 20px;
+	border-radius: 7px;
+	display: block;
+	color: #fff;
+	background: #E10482;
+	
+}
+
+.wareM4_c3,.wareM4_c6{
+	line-height: 138px;
+	text-align: center;
+}
+
+.wareM4_c4{
+	line-height: 138px;	
+}
+
+.wareM4_c4 button{
+	border: 1px solid rgb(238,238,238);
+	background: rgba(255,255,255,0);
+	text-align: center;
+	height: 22px;
+	width: 20px;
+	cursor: pointer;
+}
+
+.wareM4_c4 input{
+	border: 1px solid rgb(238,238,238);
+	text-align: center;
+	margin: 0 -2px;
+	height: 20px;
+	width: 30px;
+}
+
+.wareM4_c5{
+	text-align: center;
+	line-height: 138px;
+	color: #E10482;
+	font-weight: bold;
+}
+
+.wareM4_c2,.wareM4_c3,.wareM4_c4,.wareM4_c5,.wareM4_c6,.wareM4_c1{
+	padding: 19px 0;
+}
+
+.wareM5{
+	padding: 10px 0;
+	color: rgb(153,153,153);
+	text-align: right;
+	width: 990px;
+	border: 1px solid rgb(238,238,238);
+}
+
+.wareM5 span{
+	font-weight: bold;
+}
+
+.wareM6{
+	
+	font-size: 14px;
+	margin: 25px 0;
+}
+
+
+
+.wareM6 a{
+	float: left;
+	color: #000000;
+}
+
+.wareM6 a:hover{
+	color: #E10482
+}
+
+.wareM6_right_p{
+	float: right;
+}
+
+.wareM6_right_p p{
+	margin-bottom: 10px;
+}
+
+.wareM6_right_p p:last-child{
+	color: rgb(153,153,153);
+}
+
+.wareM6_right_p p:first-child span:last-child{
+	color: #E10482;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.wareM6 button{
+	cursor: pointer;
+	float: right;
+	width: 160px;
+	height: 50px;
+	background: #E10482;
+	border-radius: 30px;
+}

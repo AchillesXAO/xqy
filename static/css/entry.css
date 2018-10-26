@@ -1,0 +1,142 @@
+.jion{
+	width: 100%;
+	min-width: 1190px;
+	background: rgb(245,245,245);
+	padding: 20px 0;
+}
+
+.jionM{
+	padding: 30px 0;
+	width: 1190px;
+	margin: 0 auto;
+	
+}
+
+.jionM_left1{
+	margin-left: 130px;
+	float: left;
+	height: 45px;
+	width: 161px;
+	background: url(../img/jion.png);
+}
+
+.jionM_left2{
+	line-height: 18px;
+	padding-top: 5px;
+	font-size: 14px;
+	margin-left: 30px;
+	float: left;
+	width: 90px;
+}
+
+.jionM_right{
+	font-size: 14px;
+	float: right;
+}
+
+.jionM_right a{
+	display: inline-block;
+	height: 30px;
+	width: 62px;
+	color: #e10482;
+	border: 1px solid #E10482;
+	line-height: 30px;
+	text-align: center;
+	border-radius: 15px;
+}
+
+.jionM_right a:hover{
+	color: #fff;
+	background: #E10482;
+}
+
+.register{
+	width: 100%;
+	min-width: 1190px;
+}
+.registerM{
+	width: 990px;
+	margin: 50px auto;
+	margin-bottom: 250px;
+}
+.registerM_left{
+	float: left;
+}
+.registerM_right{
+	position: relative;
+	float: right;
+}
+
+.registerM_right input{
+	margin-top: 20px;
+	border: 2px solid rgb(153,153,153);
+	width: 250px;
+	height: 46px;
+	padding-left: 86px;
+}
+
+.registerM_right1,.registerM_right2,.registerM_right3{
+	position: relative;
+}
+.registerM_right span{
+	font-size: 14px;
+	width: 78px;
+	color: #666;
+	border-right: 1px solid #ccc;
+	text-align: center;
+	background: #F5F5F5;
+	line-height: 46px;
+	height: 46px;
+	top: 22px;
+	left: 2px;
+	position: absolute;
+}
+
+.registerM_right3 i{
+	cursor: pointer;
+	position: absolute;
+	left: 232px;
+	text-align: center;
+	line-height: 46px;
+	top: 21px;
+	width: 105px;
+	height: 46px;
+	border: 1px solid cornflowerblue;
+}
+
+.registerM_right4 input{
+	cursor: pointer;
+}
+
+#yanjing{
+	height: 46px;
+	width: 46px;
+	position: absolute;
+	top: 112px;
+	left: 292px;
+	cursor: pointer;
+	z-index: 1000;
+}
+
+#reg{
+	height: 40px;
+	width: 108px;
+	border-radius: 30px;
+	background: rgb(153,153,153);
+	color: #fff;
+	padding: 0;
+	margin-left: 100px;
+	font-size: 20px;
+}
+
+#reg:hover{
+	background: #E10482;
+	border: 0;
+}
+
+.registerM_right p{
+	opacity: 0;
+	font-size: 12px;
+	color: #E10482;
+	line-height: 20px;
+}
