@@ -145,21 +145,20 @@ $(function () {
 		var phone = /^[1][3,5,8][0-9]{9}/
 		var myphone = phone.test($(this).val())
 		if (myphone){
-
 			// 手机号输入完成，发起ajax请求，验证该用户名是否能用
-            // $.get('/check_phone/', {'phone':$(this).val()}, function (response) {
-             //    if(response['status'] == '-1'){ // 手机号存在
-             //        $('#phone').attr('style', 'border: 2px solid #E10482;')
-			// 		$('.registerM_right1 p').css('opacity', '1')
-             //    } else {
-             //        $('#phone').removeAttr('style')
-			// 		$('.registerM_right1 p').css('opacity', '0')
-             //    }
-            // })
+            $.getJSON('/check_phone/', {'phone':$(this).val()}, function (response) {
+                if(response['status'] == '-1'){ // 手机号存在
+                    $('#phone').attr('style', 'border: 2px solid #E10482;')
+					$('.registerM_right1 p').css('opacity', '1').text('@手机号已注册')
+                } else {
+                    $('#phone').removeAttr('style')
+					$('.registerM_right1 p').css('opacity', '0')
+                }
+            })
 
 		} else {
 			$('#phone').attr('style', 'border: 2px solid #E10482;')
-			$('.registerM_right1 p').css('opacity', '1')
+			$('.registerM_right1 p').css('opacity', '1').text('@请输入正确的手机号码')
 		}
     })
 
