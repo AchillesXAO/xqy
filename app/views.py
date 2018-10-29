@@ -1,7 +1,7 @@
 import hashlib
 import uuid
 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -21,7 +21,7 @@ def register(request):
         user = User()
         user.phone = request.POST.get('phone')
         user.password = generate_password(request.POST.get('password'))
-        user.token = uuid.uuid5(uuid.uuid4(), 'register')
+        user.token = str(uuid.uuid5(uuid.uuid4(), 'register'))
         user.save()
         request.session['token'] = user.token
         return redirect('hait:index')
@@ -45,3 +45,14 @@ def entry(request):
 
 def detail(request):
     return render(request, 'detail.html')
+
+
+# 手机号验证
+# 用户验证
+def check_phone(request):
+    phone = request.GET.get('phone')
+    try:
+        user = User.objects.get(phone=phone)
+        return JsonResponse({'status':'-1'})
+    except:
+        return JsonResponse({'status':'1'})

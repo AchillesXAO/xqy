@@ -137,3 +137,81 @@
 
 
 
+
+$(function () {
+
+	// 手机号码验证
+	$('#phone').blur(function () {
+		var phone = /^[1][3,5,8][0-9]{9}/
+		var myphone = phone.test($(this).val())
+		if (myphone){
+
+			// 手机号输入完成，发起ajax请求，验证该用户名是否能用
+            $.get('/check_phone/', {'phone':$(this).val()}, function (response) {
+                if(response['status'] == '-1'){ // 手机号存在
+                	alert(123)
+                    $('#phone').attr('style', 'border: 2px solid #E10482;')
+					$('.registerM_right1 p').css('opacity', '1')
+                } else {
+                    $('#phone').removeAttr('style')
+					$('.registerM_right1 p').css('opacity', '0')
+                }
+            })
+
+		} else {
+			$('#phone').attr('style', 'border: 2px solid #E10482;')
+			$('.registerM_right1 p').css('opacity', '1')
+		}
+    })
+
+	//密码验证
+	$('#password').blur(function () {
+		var password = /^\S{6,}/i
+		var mypassword = password.test($(this).val())
+		if (mypassword){
+			$('#password').removeAttr('style')
+			$('.registerM_right2 p').css('opacity', '0')
+		} else {
+			$('#password').attr('style', 'border: 2px solid #E10482;')
+			$('.registerM_right2 p').css('opacity', '1')
+		}
+    })
+
+	// 眼睛
+	$('#yanjing').on('click', function () {
+		var $eye = $('#password').attr('type')
+		if ($eye == 'password'){
+			$('#password').attr('type', 'text')
+		} else {
+			$('#password').attr('type', 'password')
+		}
+    })
+
+	// 验证码
+	var code = ''
+	for (i=0; i<4; i++){
+		var random = parseInt(Math.random() * 10)
+		code += random
+	}
+	$('.registerM_right3 i').html(code)
+	$('.registerM_right3 i').on('click', function () {
+		var code = ''
+		for (i=0; i<4; i++){
+		var random = parseInt(Math.random() * 10)
+		code += random
+		}
+		$('.registerM_right3 i').html(code)
+    })
+	var code = $('.registerM_right3 i').html()
+	$('#code').blur(function () {
+		var mycode = $(this).val()
+		if (mycode == code){
+			$('#code').removeAttr('style')
+			$('.registerM_right3 p').css('opacity', '0')
+		} else {
+			$('#code').attr('style', 'border: 2px solid #E10482;')
+			$('.registerM_right3 p').css('opacity', '1')
+		}
+    })
+
+})
