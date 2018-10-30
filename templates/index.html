@@ -28,8 +28,15 @@
 			<div class="head_main_top">
 				<div class="head_main_topM">
 					<div class="head_main_topM_left">
-						<a href="/entry/">登录</a>
-						<a href="/register/">免费注册</a>
+
+                        {% if login == '登录' %}
+                            <a href="/entry/">{{ login }}</a>
+						    <a href="/register/">{{ register }}</a>
+                        {% else %}
+                            <a href="/entry/">{{ login }}</a>
+						    <a href="/quit/">{{ register }}</a>
+                        {% endif %}
+
 						<a href="#"><img src="img/headshouji.png"/>手机版</a>
 					</div>
 					<div class="head_main_topM_right">
@@ -860,6 +867,12 @@
 							<a href="#"><img src="img/sidebar_choice0.jpg"/></a>
 							<a href="#"><img src="img/sidebar_choice1.jpg"/></a>
 						</div>
+
+                        <h2>------------&nbsp;&nbsp;精选专题&nbsp;&nbsp;------------</h2>
+						<div class="listM_right_bottom_img">
+							<a href="#"><img src="img/sidebar_choice0.jpg"/></a>
+							<a href="#"><img src="img/sidebar_choice1.jpg"/></a>
+						</div>
 						
 					</div>
 				</div>
@@ -957,7 +970,7 @@
 		<div class="nav">
 			<ul>
 				<li><img class="kefu" src="img/nav0.png"/><img src="img/right11.jpg"/></li>
-				<li class="li_p"><a href="shoppingCart.html"><img class="cart" src="img/right20.jpg"/></a><p>0</p></li>
+				<li class="li_p"><a href="/shoppingCart/"><img class="cart" src="img/right20.jpg"/></a><p>0</p></li>
 				<li><img class="kefu" src="img/nav1.png"/><img src="img/right30.jpg"/></li>
 				<li><img class="kefu" src="img/nav2.png"/><img src="img/right40.jpg"/></li>
 			</ul>

@@ -135,8 +135,9 @@
 }
 
 .registerM_right p{
+	/*opacity: 1;*/
 	opacity: 0;
-	font-size: 12px;
+	font-size: 15px;
 	color: #E10482;
 	line-height: 20px;
 }

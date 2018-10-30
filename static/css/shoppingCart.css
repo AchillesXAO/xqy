@@ -28,6 +28,18 @@
 	background: rgb(238,238,238);
 }
 
+.wareM2 input {
+	position: relative;
+	margin-top: 18px;
+}
+
+.wareM2 b {
+	position: absolute;
+	float: left;
+	margin-top: 15px;
+	margin-left: 12px;
+}
+
 .wareM2 div{
 	margin-top: 5px;
 	line-height: 23px;

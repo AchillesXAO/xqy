@@ -108,7 +108,7 @@ $(function(){
 	/*获取json数据*/
 	var search = location.search;
 	var name = search.split("=")[1];
-	var data = $.get("static/json/index.json",function getDATA(data){
+	var data = $.get("/static/json/index.json",function getDATA(data){
 		console.log(data[0].id);
 		var num = 1;
 		/*动态加载*/

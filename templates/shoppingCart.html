@@ -20,8 +20,15 @@
 			<div class="head_main_top">
 				<div class="head_main_topM">
 					<div class="head_main_topM_left">
-						<a href="#">登录</a>
-						<a href="#">免费注册</a>
+
+                        {% if login == '登录' %}
+                            <a href="/entry/">{{ login }}</a>
+						    <a href="/register/">{{ register }}</a>
+                        {% else %}
+                            <a href="/entry/">{{ login }}</a>
+						    <a href="/quit/">{{ register }}</a>
+                        {% endif %}
+
 						<a href="#"><img src="img/headshouji.png"/>手机版</a>
 					</div>
 					<div class="head_main_topM_right">
