@@ -2,16 +2,16 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>AVENT/新安怡 自然原生新生儿防胀气宽口径玻璃奶瓶 240ml-奶瓶/奶嘴-AVENT/新安怡-嗨淘全球</title>
+		<title>{{ goods.product }}</title>
 		<link rel="stylesheet" type="text/css" href="/static/css/basic.css"/>
 		<link rel="stylesheet" type="text/css" href="/static/css/detail.css"/>
 		<script src="/static/js/jquery-1.12.0.js" type="text/javascript" charset="utf-8"></script>
 		<script src="/static/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
 		<script src="/static/js/basic.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/static/js/detail.js" type="text/javascript" charset="utf-8"></script>
 
         <script src="/static/js/reset_static.js" type="text/javascript" charset="utf-8"></script>
 
+		<script src="/static/js/detail.js" type="text/javascript" charset="utf-8"></script>
 	</head> 
 	<body>
 		<div class="head_main"> 
@@ -19,8 +19,15 @@
 			<div class="head_main_top">
 				<div class="head_main_topM">
 					<div class="head_main_topM_left">
-						<a href="#">登录</a>
-						<a href="#">免费注册</a>
+
+                        {% if login == '登录' %}
+                            <a href="/entry/">{{ login }}</a>
+						    <a href="/register/">{{ register }}</a>
+                        {% else %}
+                            <a href="/entry/">{{ login }}</a>
+						    <a href="/quit/">{{ register }}</a>
+                        {% endif %}
+
 						<a href="#"><img src="img/headshouji.png"/>手机版</a>
 					</div>
 					<div class="head_main_topM_right">
@@ -55,7 +62,7 @@
 			<div class="head_main_bottom">
 				<div class="head_main_bottomM">
 					<div class="head_main_bottomM_left">
-						<span><a href="index.html">首页</a></span><span><a href="#">全球特卖</a></span>
+						<span><a href="/index/">首页</a></span><span><a href="#">全球特卖</a></span>
 					</div>
 					<div class="head_main_bottomM_right">
 						<span><img src="img/xiala.png"/></span>
@@ -710,18 +717,18 @@
 					<button>查看全部品牌&gt;</button>
 				</div>
 				<div class="concent_topM_top">
-					<span><a href="index.html">首页</a> > <b>AVENT/新安怡 自然原生新生儿防胀气宽口径玻璃奶瓶 240ml</b></span>
+					<span><a href="/index/">首页</a> > <b>{{ goods.product }}</b></span>
 				</div>
 				<div class="concent_topM_bottom">
 					<div class="concent_topM_bottom_l">
 						<div class="concent_topM_bottom_l_title">
-							<img src=""/><span>[特卖] AVENT/新安怡 自然原生新生儿防胀气宽口径玻璃奶瓶 240ml</span>
+							<img src="{{ goods.img_r }}"/><span>[特卖] {{ goods.product }}</span>
 						</div>
 						<div id="fangdajing">
 							<div id="fangdajing_l">
 								
 							</div>
-							<img class="fangdajing" src=""/>
+							<img class="fangdajing" src="{{ goods.img_l }}"/>
 						</div>
 						<img class="erweima" src="img/erweima.png"/>
 						<p>分享<a href="#"><img class="weixin" src="img/lianjie0.png"/></a><a href="#"><img src="img/lianjie1.png"/></a><a href="#"><img src="img/lianjie2.png"/></a></p>
@@ -735,13 +742,13 @@
 						</div>
 						<div class="concent_topM_bottom_r_sub">
 							<div class="jieshao">
-								<p>花中之王牡丹与玫瑰组成的护手套装，深层滋润双手肌肤，嫩滑的触感伴着淡淡清香，双手持久保湿水嫩润滑，缔造鲜花般娇嫩玉指，带来非凡长效的保湿效果，尽显活力与年轻！</p>
+								<p>{{ goods.introduce }}</p>
 							</div>
 							<div class="price">
-								<em>$</em><b>98.00</b><a href="#">税务说明</a>
+								<em>$</em><b>{{ goods.price }}</b><a href="#">税务说明</a>
 							</div>
 							<div class="price_p">
-								官方指导价<span>$170.00</span><i>省</i>组合省<span>32.00</span>元
+								官方指导价<span>{{ goods.price_p }}</span><i>省</i>组合省<span>{{ price_sub }}.00</span>元
 							</div>
 							<div class="baoyou">
 								<span>包邮</span>  全场包邮
@@ -830,7 +837,7 @@
 						<img src="img/jieshao_t.jpg"/>
 						<h4>产品参数   PRODUCT PARAMETERY</h4>
 						<dl>
-							<dt><img src=""/></dt>
+							<dt><img src="{{ goods.img_d }}"/></dt>
 							<dd>
 								<span>保质期:</span>3年
 							</dd>
@@ -858,6 +865,12 @@
 						</dl>
 						<h4>产品描述   PRODUCT DESCRIPTION</h4>
 						<div class="img_jieshao">
+
+                           {% for img in img_list %}
+                               <img src="{{ img }}" alt="">
+                           {% endfor %}
+                           
+
 						</div>
 					</div>
 					<div class="criticism ">
@@ -1099,10 +1112,13 @@
 				<li class="li_p"><a href="shoppingCart.html"><img class="cart" src="img/right20.jpg"/></a><p>0</p></li>
 				<li><img class="kefu" src="img/nav1.png"/><img src="img/right30.jpg"/></li>
 				<li><img class="kefu" src="img/nav2.png"/><img src="img/right40.jpg"/></li>
+
+                <li><img class="kefu" src="img/nav4.png"/><img src="img/right50.jpg"/></li>
+				<li><img class="img_last" src="img/right60.jpg"/></li>
+
 			</ul>
 			<ul>
-				<li><img class="kefu" src="img/nav4.png"/><img src="img/right50.jpg"/></li>
-				<li><img class="img_last" src="img/right60.jpg"/></li>
+
 			</ul>
 		</div>
 	</body>

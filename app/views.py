@@ -4,7 +4,7 @@ import uuid
 from django.contrib.auth import logout
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
-from app.models import User, Wheel
+from app.models import User, Wheel, Commodity
 
 
 # Create your views here.
@@ -14,10 +14,12 @@ from app.models import User, Wheel
 def index(request):
 
     wheels = Wheel.objects.all()
+    commoditys = Commodity.objects.all()
 
     token = request.session.get('token')
     response_data = {
         'wheels': wheels,
+        'commoditys': commoditys,
         'login': '登录',
         'register': '注册'
     }
@@ -84,8 +86,36 @@ def quit(request):
 
 
 # 商品详情
-def detail(request):
-    return render(request, 'detail.html')
+def detail(request, num):
+    token = request.session.get('token')
+    goods = Commodity.objects.all()[int(num)-1]
+
+    price_h = int(goods.price_p.strip('$').split('.')[0])
+    price_l = int(goods.price.split('.')[0])
+    price_sub = price_h - price_l
+
+    good_list = goods.img.strip('[')
+    good_list = good_list.strip(']')
+    good_list = good_list.replace('"', '')
+    good_list = good_list.split(',')
+    img_list = []
+    for i in range(len(good_list)):
+        img_list.append(good_list[i].replace(' ', ''))
+    response_data = {
+        'goods': goods,
+        'img_list': img_list,
+        'price_sub': price_sub,
+        'login': '登录',
+        'register': '注册'
+    }
+    if token:  # 登录
+        user = User.objects.get(token=token)
+        response_data['login'] = user.phone
+        response_data['register'] = '注销'
+    else:  # 未登录
+        response_data['login'] = '登录'
+        response_data['register'] = '注册'
+    return render(request, 'detail.html', context=response_data)
 
 
 # 手机号验证
@@ -98,6 +128,7 @@ def check_phone(request):
         return JsonResponse({'status':'1'})
 
 
+# 购物车
 def shoppingCart(request):
     token = request.session.get('token')
     response_data = {

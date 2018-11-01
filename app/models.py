@@ -23,6 +23,8 @@ class Commodity(models.Model):
     tag = models.CharField(max_length=100)
     img_l = models.CharField(max_length=100)
     img_r = models.CharField(max_length=100)
+    img_d = models.CharField(max_length=100)
+    img = models.CharField(max_length=256)
     country = models.CharField(max_length=100)
     product = models.CharField(max_length=100)
     introduce = models.CharField(max_length=100)

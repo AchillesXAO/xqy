@@ -850,7 +850,24 @@
 
 
                     {# 商品数据 #}
-
+                    {% for commodity in commoditys %}
+                        <div class="listM_left_li">
+                            <div class="listM_left_li_left"><span class="ID">{{ commodity.tag }}</span><a href="/detail/{{ commodity.id }}"
+                                                                                          target="_blank"><img class="list_img_l"
+                                                                                                               src="{{ commodity.img_l }}"
+                                                                                                               style="display: inline-block; height: 260px; width: 418px; left: 0px; top: 0px;"></a>
+                            </div>
+                            <div class="listM_left_li_right">
+                                <div class="listM_left_li_right1"><img class="list_img_r" src="{{ commodity.img_r }}"><span>{{ commodity.country }}</span></div>
+                                <div class="listM_left_li_right2"><a href="#">{{ commodity.product }}</a></div>
+                                <div class="listM_left_li_right3"><p>{{ commodity.introduce }}</p></div>
+                                <div class="listM_left_li_right4">$<span>{{ commodity.price }}</span><span>{{ commodity.price_p }}</span><a href="detail.html?id={{ commodity.tag }}"
+                                                                                                           target="_blank"><input
+                                        type="button" value="立即抢购"></a></div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    {% endfor %}
 
 
 				</div>
