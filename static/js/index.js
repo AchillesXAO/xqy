@@ -6,22 +6,22 @@ $(function(){
 	
 	/*简易轮播图*/
 	var lengt = $("#imgList img").length;
-	var  i = lengt; 
+	var  i = lengt;
 	var timer=null;
 	move(i);
 	var num = 1;
 	function move(i){
 		 timer = setInterval(function(){
 			if (i < 0 ) {
-				i = 1;    
+				i = 1;
 				num *=-1;
 			}else if (i >2) {
 				i = 0;
 				num *=-1;
 			}
-			$("#imgList img").eq(i).show().siblings().hide();  
+			$("#imgList img").eq(i).show().siblings().hide();
 			$("#liList li").eq(i).addClass("activit").siblings().removeClass("activit");
-			i+=num; 
+			i+=num;
 		},2000);
 	}
 	var index = 0
@@ -29,7 +29,7 @@ $(function(){
 		$(this).addClass("activit").siblings().removeClass("activit");
 		 index = $(this).index();
 		 i = index;
-		$("#imgList img").eq(i).show().siblings().hide(); 
+		$("#imgList img").eq(i).show().siblings().hide();
 	})
 	$(".but_l,.but_r").mouseover(function(){
 		$(".but_l,.but_r").show();
@@ -40,7 +40,7 @@ $(function(){
 		if (index < 0) {
 			index = 2;
 		}
-		$("#imgList img").eq(index).show().siblings().hide();  
+		$("#imgList img").eq(index).show().siblings().hide();
 		$("#liList li").eq(index).addClass("activit").siblings().removeClass("activit");
 	})
 	$(".but_r").click(function(){
@@ -48,7 +48,7 @@ $(function(){
 		if (index > 2) {
 			index = 0;
 		}
-		$("#imgList img").eq(index).show().siblings().hide();  
+		$("#imgList img").eq(index).show().siblings().hide();
 		$("#liList li").eq(index).addClass("activit").siblings().removeClass("activit");
 	})
 	/*图片划过效果*/
@@ -108,7 +108,7 @@ $(function(){
 	/*获取json数据*/
 	var search = location.search;
 	var name = search.split("=")[1];
-	var data = $.get("/static/json/index.json",function getDATA(data){
+	var data = $.get("json/index.json",function getDATA(data){
 		console.log(data[0].id);
 		var num = 1;
 		/*动态加载*/

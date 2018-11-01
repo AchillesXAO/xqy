@@ -18,7 +18,7 @@
 	<body>
 		<!--头部友情提示-->
 		<div class="head_top"> 
-			<a href="index.html"></a>
+			<a href="/index/"></a>
 			<i class="head_close" title="关闭"><!--点击关闭-->
 			</i>
 		</div>
@@ -729,9 +729,17 @@
 						<button>查看全部品牌&gt;</button>
 					</div>
 					<div id="imgList">
-						<img src="img/theme2.jpg"/>
-						<img src="img/theme1.jpg"/>
-						<img src="img/theme0.jpg"/>
+
+{#						<img src="img/theme2.jpg"/>#}
+{#						<img src="img/theme1.jpg"/>#}
+{#						<img src="img/theme0.jpg"/>#}
+
+                        {# 轮播图 #}
+                        {% for wheel in wheels %}
+                            <img src="{{ wheel.img }}" />
+                        {% endfor %}
+                        
+
 					</div>
 					<button class="but_l">&lt;</button>
 					<button class="but_r">&gt;</button>
@@ -839,6 +847,12 @@
 						<img src="img/list.png"/>
 						<a href="#">查看更多&nbsp;&gt;</a>
 					</div>
+
+
+                    {# 商品数据 #}
+
+
+
 				</div>
 				<div class="listM_right">
 					<div class="listM_right_top">
@@ -867,13 +881,6 @@
 							<a href="#"><img src="img/sidebar_choice0.jpg"/></a>
 							<a href="#"><img src="img/sidebar_choice1.jpg"/></a>
 						</div>
-
-                        <h2>------------&nbsp;&nbsp;精选专题&nbsp;&nbsp;------------</h2>
-						<div class="listM_right_bottom_img">
-							<a href="#"><img src="img/sidebar_choice0.jpg"/></a>
-							<a href="#"><img src="img/sidebar_choice1.jpg"/></a>
-						</div>
-						
 					</div>
 				</div>
 				<div class="clear">
@@ -973,10 +980,13 @@
 				<li class="li_p"><a href="/shoppingCart/"><img class="cart" src="img/right20.jpg"/></a><p>0</p></li>
 				<li><img class="kefu" src="img/nav1.png"/><img src="img/right30.jpg"/></li>
 				<li><img class="kefu" src="img/nav2.png"/><img src="img/right40.jpg"/></li>
+
+                <li><img class="kefu" src="img/nav4.png"/><img src="img/right50.jpg"/></li>
+				<li><img class="img_last" src="img/right60.jpg"/></li>
+
 			</ul>
 			<ul>
-				<li><img class="kefu" src="img/nav4.png"/><img src="img/right50.jpg"/></li>
-				<li><img class="img_last" src="img/right60.jpg"/></li>
+
 			</ul>
 		</div>
 	</body>

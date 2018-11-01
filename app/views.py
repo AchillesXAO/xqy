@@ -4,15 +4,20 @@ import uuid
 from django.contrib.auth import logout
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
-from app.models import User
+from app.models import User, Wheel
+
 
 # Create your views here.
 
 
 # 首页
 def index(request):
+
+    wheels = Wheel.objects.all()
+
     token = request.session.get('token')
     response_data = {
+        'wheels': wheels,
         'login': '登录',
         'register': '注册'
     }
