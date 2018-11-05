@@ -58,7 +58,7 @@ $(function(){
 	if (name) {
 		$(".head_main_bottomM_left span:first-child a").attr("href","index.html?name="+name);
 	}
-	$.get("/static/json/index.json",function(data){
+	$.get("json/index.json",function(data){
 		for (var i=0;i < data.length;i++) {
 			if (ID == data[i].id) { 
 				var price = parseInt(data[i].price);
@@ -216,4 +216,3 @@ $(function(){
 	})
 	
 })
-

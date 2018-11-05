@@ -4,7 +4,7 @@ import uuid
 from django.contrib.auth import logout
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
-from app.models import User, Wheel, Commodity
+from app.models import User, Wheel, Commodity, Cart
 
 
 # Create your views here.
@@ -26,7 +26,7 @@ def index(request):
     if token:  # 登录
         user = User.objects.get(token=token)
         response_data['login'] = user.phone
-        response_data['register'] = '注销'
+        response_data['register'] = '退出'
     else:  # 未登录
         response_data['login'] = '登录'
         response_data['register'] = '注册'
@@ -90,6 +90,8 @@ def detail(request, num):
     token = request.session.get('token')
     goods = Commodity.objects.all()[int(num)-1]
 
+    goodsid = num
+
     price_h = int(goods.price_p.strip('$').split('.')[0])
     price_l = int(goods.price.split('.')[0])
     price_sub = price_h - price_l
@@ -103,6 +105,7 @@ def detail(request, num):
         img_list.append(good_list[i].replace(' ', ''))
     response_data = {
         'goods': goods,
+        'goodsid': goodsid,
         'img_list': img_list,
         'price_sub': price_sub,
         'login': '登录',
@@ -111,7 +114,7 @@ def detail(request, num):
     if token:  # 登录
         user = User.objects.get(token=token)
         response_data['login'] = user.phone
-        response_data['register'] = '注销'
+        response_data['register'] = '退出'
     else:  # 未登录
         response_data['login'] = '登录'
         response_data['register'] = '注册'
@@ -131,15 +134,77 @@ def check_phone(request):
 # 购物车
 def shoppingCart(request):
     token = request.session.get('token')
+    carts = []
     response_data = {
         'login': '登录',
-        'register': '注册'
+        'register': '注册',
+        'carts': carts
     }
     if token:  # 登录
         user = User.objects.get(token=token)
+        carts = Cart.objects.filter(user=user).exclude(number=0)
         response_data['login'] = user.phone
-        response_data['register'] = '注销'
+        response_data['register'] = '退出'
     else:  # 未登录
         response_data['login'] = '登录'
         response_data['register'] = '注册'
     return render(request, 'shoppingCart.html', context=response_data)
+
+
+def addToCart(request):
+    goodsid = request.GET.get('goodsid')
+    # print('###########################')
+    # print(goodsid)
+    # print('###########################')
+    token = request.session.get('token')
+
+    responseData = {
+        'msg': '',
+        'status': '',
+    }
+
+    if token:  # 登录
+        user = User.objects.get(token=token)
+        commodity = Commodity.objects.get(pk=goodsid)
+        # print('###########################')
+        # print(commodity.product)
+        # print('###########################')
+
+        carts = Cart.objects.filter(commodity=commodity).filter(user=user)
+        if carts.exists():
+            cart = carts.first()
+            cart.number = cart.number + 1
+
+            responseData['img_l'] = commodity.img_l
+            responseData['product'] = commodity.product
+            responseData['price'] = commodity.price
+
+            cart.save()
+            responseData['msg'] = '添加购物车成功'
+            responseData['status'] = 1
+            responseData['number'] = cart.number
+
+            return JsonResponse(responseData)
+        else:
+            cart = Cart()
+            cart.user = user
+            cart.commodity = commodity
+            cart.number = 1
+
+            responseData['img_l'] = commodity.img_l
+            responseData['product'] = commodity.product
+            responseData['price'] = commodity.price
+
+            cart.save()
+
+            responseData['msg'] = '添加购物车成功'
+            responseData['status'] = 1
+            responseData['number'] = cart.number
+            return JsonResponse(responseData)
+    else:  # 未登录
+        # ajax请求操作 是重定向不了的
+        # return redirect('axf:login')
+        responseData['msg'] = '请登录后操作'
+        responseData['status'] = '-1'
+
+        return JsonResponse(responseData)

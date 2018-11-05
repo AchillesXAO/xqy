@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^detail/(\d+)/$', views.detail, name='detail'),
     url(r'^check_phone/$', views.check_phone, name='check_phone'),
     url(r'^shoppingCart/$', views.shoppingCart, name='shoppingCart'),
+    url(r'^addToCart/$', views.addToCart, name='addToCart'),
 ]

@@ -1,5 +1,7 @@
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html>
+{% block head %}
 	<head>
 		<meta charset="UTF-8">
 		<title>嗨淘全球-注册</title>
@@ -13,7 +15,9 @@
         <script src="/static/js/reset_static.js" type="text/javascript" charset="utf-8"></script>
 
 	</head>
+{% endblock %}
 	<body>
+        {% block content %}
 		<!--头部-->
 		<div class="head_main_middle">
 				<div class="head_main_middleM">
@@ -24,7 +28,6 @@
 					<div class="clear"></div>
 				</div>
 		</div>
-		
 		<!--提示内容join-->
 		<div class="jion">
 			<div class="jionM">
@@ -123,18 +126,6 @@
 				</div>
 			</div>
 		</div>
-		<!--右边侧栏-->
-		<div class="nav">
-			<ul>
-				<li><img class="kefu" src="img/nav0.png"/><img src="img/right11.jpg"/></li>
-				<li class="li_p"><img class="cart" src="img/right20.jpg"/><p>0</p></li>
-				<li><img class="kefu" src="img/nav1.png"/><img src="img/right30.jpg"/></li>
-				<li><img class="kefu" src="img/nav2.png"/><img src="img/right40.jpg"/></li>
-			</ul>
-			<ul>
-				<li><img class="kefu" src="img/nav4.png"/><img src="img/right50.jpg"/></li>
-				<li><img class="img_last" src="img/right60.jpg"/></li>
-			</ul>
-		</div>
+		{% endblock %}
 	</body>
 </html>

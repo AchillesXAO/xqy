@@ -33,3 +33,11 @@ class Commodity(models.Model):
 
     class Meta:
         db_table = 'commodity'
+
+
+# 购物车模型
+class Cart(models.Model):
+    user = models.ForeignKey(User)
+    commodity = models.ForeignKey(Commodity)
+    number = models.IntegerField(default=1)
+    isselect = models.BooleanField(default=True)

@@ -1,5 +1,7 @@
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html>
+{% block head %}
 	<head>
 		<meta charset="utf-8" />
 		<title>嗨淘全球-海淘正品，就认嗨淘全球，阿里巴巴和湖南卫视旗下跨境电商平台</title>
@@ -15,7 +17,9 @@
         <script src="/static/js/reset_static.js" type="text/javascript" charset="utf-8"></script>
 
 	</head>
+{% endblock %}
 	<body>
+        {% block content %}
 		<!--头部友情提示-->
 		<div class="head_top"> 
 			<a href="/index/"></a>
@@ -33,8 +37,8 @@
                             <a href="/entry/">{{ login }}</a>
 						    <a href="/register/">{{ register }}</a>
                         {% else %}
-                            <a href="/entry/">{{ login }}</a>
-						    <a href="/quit/">{{ register }}</a>
+                            <a href="/entry/"> 欢迎您, &nbsp;{{ login }}</a>
+						    <a href="/quit/">[{{ register }}]</a>
                         {% endif %}
 
 						<a href="#"><img src="img/headshouji.png"/>手机版</a>
@@ -861,7 +865,7 @@
                                 <div class="listM_left_li_right1"><img class="list_img_r" src="{{ commodity.img_r }}"><span>{{ commodity.country }}</span></div>
                                 <div class="listM_left_li_right2"><a href="#">{{ commodity.product }}</a></div>
                                 <div class="listM_left_li_right3"><p>{{ commodity.introduce }}</p></div>
-                                <div class="listM_left_li_right4">$<span>{{ commodity.price }}</span><span>{{ commodity.price_p }}</span><a href="detail.html?id={{ commodity.tag }}"
+                                <div class="listM_left_li_right4">$<span>{{ commodity.price }}</span><span>{{ commodity.price_p }}</span><a href="/detail/{{ commodity.id }}"
                                                                                                            target="_blank"><input
                                         type="button" value="立即抢购"></a></div>
                             </div>
@@ -990,21 +994,6 @@
 				</div>
 			</div>
 		</div>
-		<!--右边侧栏-->
-		<div class="nav">
-			<ul>
-				<li><img class="kefu" src="img/nav0.png"/><img src="img/right11.jpg"/></li>
-				<li class="li_p"><a href="/shoppingCart/"><img class="cart" src="img/right20.jpg"/></a><p>0</p></li>
-				<li><img class="kefu" src="img/nav1.png"/><img src="img/right30.jpg"/></li>
-				<li><img class="kefu" src="img/nav2.png"/><img src="img/right40.jpg"/></li>
-
-                <li><img class="kefu" src="img/nav4.png"/><img src="img/right50.jpg"/></li>
-				<li><img class="img_last" src="img/right60.jpg"/></li>
-
-			</ul>
-			<ul>
-
-			</ul>
-		</div>
+		{% endblock %}
 	</body>
 </html>

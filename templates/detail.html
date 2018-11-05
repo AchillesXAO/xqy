@@ -1,5 +1,7 @@
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html>
+{% block head %}
 	<head>
 		<meta charset="UTF-8">
 		<title>{{ goods.product }}</title>
@@ -10,10 +12,14 @@
 		<script src="/static/js/basic.js" type="text/javascript" charset="utf-8"></script>
 
         <script src="/static/js/reset_static.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/static/js/addToCart.js" type="text/javascript" charset="utf-8"></script>
 
 		<script src="/static/js/detail.js" type="text/javascript" charset="utf-8"></script>
-	</head> 
+	</head>
+{% endblock %}
+
 	<body>
+        {% block content %}
 		<div class="head_main"> 
 			<!--登录，注册，订单，收藏栏目-->
 			<div class="head_main_top">
@@ -24,8 +30,8 @@
                             <a href="/entry/">{{ login }}</a>
 						    <a href="/register/">{{ register }}</a>
                         {% else %}
-                            <a href="/entry/">{{ login }}</a>
-						    <a href="/quit/">{{ register }}</a>
+                            <a href="/entry/"> 欢迎您, &nbsp;{{ login }}</a>
+						    <a href="/quit/">[{{ register }}]</a>
                         {% endif %}
 
 						<a href="#"><img src="img/headshouji.png"/>手机版</a>
@@ -726,7 +732,7 @@
 						</div>
 						<div id="fangdajing">
 							<div id="fangdajing_l">
-								
+
 							</div>
 							<img class="fangdajing" src="{{ goods.img_l }}"/>
 						</div>
@@ -758,10 +764,11 @@
 							</div>
 							<hr />
 							<div class="shuliang">
-								数量:<button class="jian">-</button><input type="text" value="1" /><button class="jia">+</button>
+								数量 : <button class="jian">-</button><input type="text" value="1" /><button class="jia">+</button>
 							</div>
 							<div class="goumai">
-								<button>立即购买</button><button>加入购物袋</button>
+                                <a href="/shoppingCart/">
+								<button id="buy" goodsid="{{ goodsid }}">立即购买</button></a><button>加入购物袋</button>
 							</div>
 						</div>
 					</div>
@@ -845,7 +852,7 @@
 								<span>规格类型：</span>正常规格
 							</dd>
 							<dd>
-								<span>功效：</span><b>1.精心提炼自160年历史之久南法庄园优质芍药，质感细腻丰润，涂抹后被迅速吸收，有效滋养及保护手部肌肤；2.自然细腻、幼滑如丝的玫瑰润手霜，可以有效滋润及修护双手，细致肌肤，令双手柔软光滑，散发玫瑰细致而tj馥郁的清香。</b>
+								<span>功效：</span><b>{{ goods.introduce }}</b>
 							</dd>
 							<dd>
 								<span>所属分类：</span>身体护理
@@ -869,7 +876,6 @@
                            {% for img in img_list %}
                                <img src="{{ img }}" alt="">
                            {% endfor %}
-                           
 
 						</div>
 					</div>
@@ -1105,21 +1111,7 @@
 				</div>
 			</div>
 		</div>
-		<!--右边侧栏-->
-		<div class="nav">
-			<ul>
-				<li><img class="kefu" src="img/nav0.png"/><img src="img/right11.jpg"/></li>
-				<li class="li_p"><a href="shoppingCart.html"><img class="cart" src="img/right20.jpg"/></a><p>0</p></li>
-				<li><img class="kefu" src="img/nav1.png"/><img src="img/right30.jpg"/></li>
-				<li><img class="kefu" src="img/nav2.png"/><img src="img/right40.jpg"/></li>
-
-                <li><img class="kefu" src="img/nav4.png"/><img src="img/right50.jpg"/></li>
-				<li><img class="img_last" src="img/right60.jpg"/></li>
-
-			</ul>
-			<ul>
-
-			</ul>
-		</div>
+        {% endblock %}
 	</body>
+
 </html>
