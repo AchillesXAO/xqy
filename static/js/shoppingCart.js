@@ -198,3 +198,37 @@
 // 		$(".li_p p").text(shu);
 // 	}
 // })
+
+
+
+
+
+
+
+
+
+$(function () {
+
+    var price = parseInt($('.wareM4_c3 strong').html())
+    var number = parseInt($('.wareM4_c4 input').attr('value'))
+    var total = price * number
+    $('.wareM4_c5 span').html(total)
+
+    // 数量操作
+    $('.button11').on('click', function () {
+        var num1 = parseInt($(this).next().attr('value'))
+        if (num1 > 1){
+            var num1 = num1 - 1
+            $(this).next().attr('value', num1)
+            var price = parseInt($(this).parent().prev().children().html())
+            var total = num1 * price
+            $(this).parent().next().children().html(total)
+        }
+    })
+    $('.button22').on('click', function () {
+        var num2 = parseInt($(this).prev().attr('value'))
+        var num2 = num2 + 1
+        $(this).prev().attr('value', num2)
+    })
+
+})

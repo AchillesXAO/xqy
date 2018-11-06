@@ -85,6 +85,28 @@
 				</div>
 				<!--加载-->
 				<!--加载结束-->
+
+
+                {% for cart in carts %}
+                    <div class="wareM4">
+                           <div class="wareM4_c1"><input class="check" type="checkbox"></div>
+                           <div class="wareM4_c2"><img style="margin-top: 18px" src="{{ cart.commodity.img_l }}">
+                               <div class="mingchen" style="margin-top: 18px" ><a href="#">[特卖] {{ cart.commodity.product }}</a><span>特卖</span>
+                               </div>
+                           </div>
+                           <div class="wareM4_c3"><strong>{{ cart.commodity.price }}</strong></div>
+                           <div class="wareM4_c4">
+                               <button class="button11">-</button>
+                               <input type="text" value="{{ cart.number }}">
+                               <button class="button22">+</button>
+                           </div>
+                           <div class="wareM4_c5"><span>33</span></div>
+                           <div class="wareM4_c6"><a><img src="img/laji.png"></a></div>
+                       </div>
+                {% endfor %}
+
+
+
 				<div class="clear">
 
 				</div>
@@ -98,7 +120,7 @@
 				<div class="wareM6">
 					<a href="/index/"> < &nbsp;继续购物 </a>
 					<div class="wareM6_right">
-						<button>去结算</button>
+						<button style="color: white">去结算</button>
 						<div class="wareM6_right_p">
 							<p>已选<span>1</span>件商品，合计（不含运费及税费）<span id="s1">$0.00</span></p>
 							<p>商品总计：<span id="s2">$0.00</span>活动优惠：<span></span>$0.00</p>

@@ -143,8 +143,16 @@ def shoppingCart(request):
     if token:  # 登录
         user = User.objects.get(token=token)
         carts = Cart.objects.filter(user=user).exclude(number=0)
+
+        # print('###########################')
+        # print('###########################')
+        # print(carts.first().commodity.img_l)
+        # print('###########################')
+        # print('###########################')
+
         response_data['login'] = user.phone
         response_data['register'] = '退出'
+        response_data['carts'] = carts
     else:  # 未登录
         response_data['login'] = '登录'
         response_data['register'] = '注册'
@@ -153,58 +161,75 @@ def shoppingCart(request):
 
 def addToCart(request):
     goodsid = request.GET.get('goodsid')
+    number = int(request.GET.get('num'))
+
     # print('###########################')
-    # print(goodsid)
     # print('###########################')
+    # print(type(number))
+    # print(number)
+    # print('###########################')
+    # print('###########################')
+
     token = request.session.get('token')
 
     responseData = {
         'msg': '',
-        'status': '',
+        'status': ''
     }
 
     if token:  # 登录
         user = User.objects.get(token=token)
         commodity = Commodity.objects.get(pk=goodsid)
+
         # print('###########################')
         # print(commodity.product)
         # print('###########################')
 
         carts = Cart.objects.filter(commodity=commodity).filter(user=user)
+
+        # print('###########################')
+        # print('###########################')
+        # print(carts)
+        # print('###########################')
+        # print('###########################')
+
         if carts.exists():
             cart = carts.first()
-            cart.number = cart.number + 1
 
-            responseData['img_l'] = commodity.img_l
-            responseData['product'] = commodity.product
-            responseData['price'] = commodity.price
+            # print('###########################')
+            # print('###########################')
+            # print(cart.commodity.img_l)
+            # print('###########################')
+            # print('###########################')
 
+            cart.number = cart.number + number
             cart.save()
-            responseData['msg'] = '添加购物车成功'
-            responseData['status'] = 1
-            responseData['number'] = cart.number
 
+            # print('###########################')
+            # print(cart)
+            # print('###########################')
+
+            responseData['msg'] = '添加购物车成功'
+            responseData['status'] = '1'
+            responseData['number'] = cart.number
             return JsonResponse(responseData)
+
         else:
             cart = Cart()
             cart.user = user
             cart.commodity = commodity
-            cart.number = 1
-
-            responseData['img_l'] = commodity.img_l
-            responseData['product'] = commodity.product
-            responseData['price'] = commodity.price
+            cart.number = number
 
             cart.save()
 
             responseData['msg'] = '添加购物车成功'
-            responseData['status'] = 1
+            responseData['status'] = '1'
             responseData['number'] = cart.number
             return JsonResponse(responseData)
+
     else:  # 未登录
         # ajax请求操作 是重定向不了的
         # return redirect('axf:login')
         responseData['msg'] = '请登录后操作'
         responseData['status'] = '-1'
-
         return JsonResponse(responseData)
