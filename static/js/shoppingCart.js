@@ -223,12 +223,26 @@ $(function () {
             var price = parseInt($(this).parent().prev().children().html())
             var total = num1 * price
             $(this).parent().next().children().html(total)
+            var goodsid = $(this).attr('goodsid')
+            var operating = $(this).html()
+            $.get('/updataCart/', {'goodsid':goodsid, 'num':num1, 'operating':operating})
         }
     })
     $('.button22').on('click', function () {
         var num2 = parseInt($(this).prev().attr('value'))
         var num2 = num2 + 1
         $(this).prev().attr('value', num2)
+        var goodsid = $(this).attr('goodsid')
+        var operating = $(this).html()
+        $.get('/updataCart/', {'goodsid':goodsid, 'num':num2, 'operating':operating})
+    })
+    $('.wareM4_c6 img').on('click', function () {
+        var goodsid = $(this).attr('goodsid')
+        var num3 = 0
+        var operating = 'delete'
+        $.get('/updataCart/', {'goodsid':goodsid, 'num':num3, 'operating':operating})
+        $(this).parent().parent().parent().empty()
+        $(this).parent().parent().parent().removeClass()
     })
 
 })

@@ -96,33 +96,31 @@
                            </div>
                            <div class="wareM4_c3"><strong>{{ cart.commodity.price }}</strong></div>
                            <div class="wareM4_c4">
-                               <button class="button11">-</button>
+                               <button class="button11" goodsid="{{ cart.commodity.id }}">-</button>
                                <input type="text" value="{{ cart.number }}">
-                               <button class="button22">+</button>
+                               <button class="button22" goodsid="{{ cart.commodity.id }}">+</button>
                            </div>
-                           <div class="wareM4_c5"><span>33</span></div>
-                           <div class="wareM4_c6"><a><img src="img/laji.png"></a></div>
+                           <div class="wareM4_c5"><span>{{ total_price }}</span></div>
+                           <div class="wareM4_c6"><a><img src="img/laji.png" goodsid="{{ cart.commodity.id }}"></a></div>
                        </div>
                 {% endfor %}
-
 
 
 				<div class="clear">
 
 				</div>
-				<div class="wareM5">
 
+{#                <div class="wareM5">#}
+{#                    商品金额：#}
+{#                    <span>$0.00</span>#}
+{#                </div>#}
 
-
-					商品金额：
-					<span>$0.00</span>
-				</div>
 				<div class="wareM6">
 					<a href="/index/"> < &nbsp;继续购物 </a>
 					<div class="wareM6_right">
 						<button style="color: white">去结算</button>
 						<div class="wareM6_right_p">
-							<p>已选<span>1</span>件商品，合计（不含运费及税费）<span id="s1">$0.00</span></p>
+							<p>已选<span>1</span>件商品，合计（不含运费及税费）<span id="s1">$0.00&nbsp;</span></p>
 							<p>商品总计：<span id="s2">$0.00</span>活动优惠：<span></span>$0.00</p>
 						</div>
 						<div class="clear">

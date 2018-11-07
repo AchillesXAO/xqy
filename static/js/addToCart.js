@@ -38,9 +38,10 @@ $(function () {
     $('#addbag').click(function () {
         // 商品
         var goodsid = $(this).attr('goodsid')
+        var num = 1
         var $that = $(this)// 将this保存起来，因为在ajax请求中，this指向有问题
         // 发起ajax请求
-        $.get('/addToCart/', {'goodsid':goodsid}, function (response) {
+        $.get('/addToCart/', {'goodsid':goodsid, 'num':num}, function (response) {
             if (response['status'] == '-1'){ // 未登录
                 //跳转到登录页面
                 confirm('请登录后操作!')

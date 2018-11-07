@@ -135,14 +135,25 @@ def check_phone(request):
 def shoppingCart(request):
     token = request.session.get('token')
     carts = []
+    total_price = []
     response_data = {
         'login': '登录',
         'register': '注册',
-        'carts': carts
+        'carts': carts,
+        'total_price': total_price
     }
     if token:  # 登录
         user = User.objects.get(token=token)
         carts = Cart.objects.filter(user=user).exclude(number=0)
+        # print('################')
+        # print('################')
+        # print(type(carts))
+        # print('################')
+        # print('################')
+        # for cart in carts:
+        #     price = int(cart.commodity.price.split('.')[0])
+        #     number = int(cart.number)
+        #     total_price += price * number
 
         # print('###########################')
         # print('###########################')
@@ -165,7 +176,7 @@ def addToCart(request):
 
     # print('###########################')
     # print('###########################')
-    # print(type(number))
+    # print(goodsid)
     # print(number)
     # print('###########################')
     # print('###########################')
@@ -208,6 +219,87 @@ def addToCart(request):
             # print('###########################')
             # print(cart)
             # print('###########################')
+
+            responseData['msg'] = '添加购物车成功'
+            responseData['status'] = '1'
+            responseData['number'] = cart.number
+            return JsonResponse(responseData)
+
+        else:
+            cart = Cart()
+            cart.user = user
+            cart.commodity = commodity
+            cart.number = number
+
+            cart.save()
+
+            responseData['msg'] = '添加购物车成功'
+            responseData['status'] = '1'
+            responseData['number'] = cart.number
+            return JsonResponse(responseData)
+
+    else:  # 未登录
+        # ajax请求操作 是重定向不了的
+        # return redirect('axf:login')
+        responseData['msg'] = '请登录后操作'
+        responseData['status'] = '-1'
+        return JsonResponse(responseData)
+
+
+# 更新购物车数据
+def updataCart(request):
+    goodsid = request.GET.get('goodsid')
+    number = int(request.GET.get('num'))
+    operating = request.GET.get('operating')
+
+    print('###########################')
+    print('###########################')
+    print(goodsid)
+    print(number)
+    print(operating)
+    print('###########################')
+    print('###########################')
+
+    token = request.session.get('token')
+
+    responseData = {
+        'msg': '',
+        'status': ''
+    }
+
+    if token:  # 登录
+        user = User.objects.get(token=token)
+        commodity = Commodity.objects.get(pk=goodsid)
+
+        # print('###########################')
+        # print(commodity.product)
+        # print('###########################')
+
+        carts = Cart.objects.filter(commodity=commodity).filter(user=user)
+
+        # print('###########################')
+        # print('###########################')
+        # print(carts)
+        # print('###########################')
+        # print('###########################')
+
+        if carts.exists():
+            cart = carts.first()
+
+            # print('###########################')
+            # print('###########################')
+            # print(cart.commodity.img_l)
+            # print('###########################')
+            # print('###########################')
+
+            if operating == '+':
+                cart.number = cart.number + 1
+                cart.save()
+            elif operating == '-':
+                cart.number = cart.number - 1
+                cart.save()
+            else:
+                cart.delete()
 
             responseData['msg'] = '添加购物车成功'
             responseData['status'] = '1'
