@@ -15,17 +15,21 @@ def index(request):
 
     wheels = Wheel.objects.all()
     commoditys = Commodity.objects.all()
+    cart = Cart.objects.all()
+    pay_number = cart.count()
 
     token = request.session.get('token')
     response_data = {
         'wheels': wheels,
         'commoditys': commoditys,
+        'pay_number': 0,
         'login': '登录',
         'register': '注册'
     }
     if token:  # 登录
         user = User.objects.get(token=token)
         response_data['login'] = user.phone
+        response_data['pay_number'] = pay_number
         response_data['register'] = '退出'
     else:  # 未登录
         response_data['login'] = '登录'
@@ -87,6 +91,9 @@ def quit(request):
 
 # 商品详情
 def detail(request, num):
+    cart = Cart.objects.all()
+    pay_number = cart.count()
+
     token = request.session.get('token')
     goods = Commodity.objects.all()[int(num)-1]
 
@@ -109,12 +116,14 @@ def detail(request, num):
         'img_list': img_list,
         'price_sub': price_sub,
         'login': '登录',
-        'register': '注册'
+        'register': '注册',
+        'pay_number': 0
     }
     if token:  # 登录
         user = User.objects.get(token=token)
         response_data['login'] = user.phone
         response_data['register'] = '退出'
+        response_data['pay_number'] = pay_number
     else:  # 未登录
         response_data['login'] = '登录'
         response_data['register'] = '注册'
@@ -133,37 +142,35 @@ def check_phone(request):
 
 # 购物车
 def shoppingCart(request):
+    cart = Cart.objects.all()
+    pay_number = cart.count()
+
     token = request.session.get('token')
     carts = []
-    total_price = []
     response_data = {
         'login': '登录',
         'register': '注册',
         'carts': carts,
-        'total_price': total_price
+        'pay_number': 0
     }
     if token:  # 登录
         user = User.objects.get(token=token)
         carts = Cart.objects.filter(user=user).exclude(number=0)
         # print('################')
         # print('################')
-        # print(type(carts))
+        # print(carts.count())
         # print('################')
         # print('################')
-        # for cart in carts:
-        #     price = int(cart.commodity.price.split('.')[0])
-        #     number = int(cart.number)
-        #     total_price += price * number
-
-        # print('###########################')
-        # print('###########################')
-        # print(carts.first().commodity.img_l)
-        # print('###########################')
-        # print('###########################')
+        for cart in carts:
+            price = int(cart.commodity.price.split('.')[0])
+            number = int(cart.number)
+            cart.total = price * number
+            cart.save()
 
         response_data['login'] = user.phone
         response_data['register'] = '退出'
         response_data['carts'] = carts
+        response_data['pay_number'] = pay_number
     else:  # 未登录
         response_data['login'] = '登录'
         response_data['register'] = '注册'
@@ -252,13 +259,13 @@ def updataCart(request):
     number = int(request.GET.get('num'))
     operating = request.GET.get('operating')
 
-    print('###########################')
-    print('###########################')
-    print(goodsid)
-    print(number)
-    print(operating)
-    print('###########################')
-    print('###########################')
+    # print('###########################')
+    # print('###########################')
+    # print(goodsid)
+    # print(number)
+    # print(operating)
+    # print('###########################')
+    # print('###########################')
 
     token = request.session.get('token')
 
@@ -325,3 +332,11 @@ def updataCart(request):
         responseData['msg'] = '请登录后操作'
         responseData['status'] = '-1'
         return JsonResponse(responseData)
+
+
+def order(request):
+    return render(request, 'order.html')
+
+
+def pay(request):
+    return render(request, 'pay.html')

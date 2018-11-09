@@ -455,8 +455,17 @@ a{
 	position: relative;
 }
 
-.li_p p{
+/*.li_p p{*/
+	/*position: absolute;*/
+	/*top: 91px;*/
+	/*font-size: 12px;*/
+	/*left: 15px;*/
+	/*color: #ff2664;*/
+/*}*/
+
+.li_p span{
 	position: absolute;
+	bottom: 15px;
 	top: 91px;
 	font-size: 12px;
 	left: 15px;

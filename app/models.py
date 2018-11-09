@@ -40,4 +40,5 @@ class Cart(models.Model):
     user = models.ForeignKey(User)
     commodity = models.ForeignKey(Commodity)
     number = models.IntegerField(default=1)
+    total = models.IntegerField(default=0)
     isselect = models.BooleanField(default=True)

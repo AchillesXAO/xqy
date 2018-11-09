@@ -13,4 +13,6 @@ urlpatterns = [
     url(r'^shoppingCart/$', views.shoppingCart, name='shoppingCart'),
     url(r'^addToCart/$', views.addToCart, name='addToCart'),
     url(r'^updataCart/$', views.updataCart, name='updataCart'),
+    url(r'^order/$', views.order, name='order'),
+    url(r'^pay/$', views.pay, name='pay'),
 ]

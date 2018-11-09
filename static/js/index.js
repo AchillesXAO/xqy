@@ -166,12 +166,12 @@ $(function(){
 		}
 	})
 	
-	if (!name) {
-		$(".li_p p").text(0);
-	}else if (JSON.parse($.cookie("cars"))) {
-		var cars = JSON.parse($.cookie("cars"));
-		var shu =cars.length ;
-		$(".li_p p").text(shu);
-	}
-	
+	// if (!name) {
+	// 	$(".li_p p").text(0);
+	// }else if (JSON.parse($.cookie("cars"))) {
+	// 	var cars = JSON.parse($.cookie("cars"));
+	// 	var shu =cars.length ;
+	// 	$(".li_p p").text(shu);
+	// }
+
 })

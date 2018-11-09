@@ -209,10 +209,10 @@
 
 $(function () {
 
-    var price = parseInt($('.wareM4_c3 strong').html())
-    var number = parseInt($('.wareM4_c4 input').attr('value'))
-    var total = price * number
-    $('.wareM4_c5 span').html(total)
+    // var price = parseInt($('.wareM4_c3 strong').html())
+    // var number = parseInt($('.wareM4_c4 input').attr('value'))
+    // var total = price * number
+    // $('.wareM4_c5 span').html(total)
 
     // 数量操作
     $('.button11').on('click', function () {
@@ -232,6 +232,9 @@ $(function () {
         var num2 = parseInt($(this).prev().attr('value'))
         var num2 = num2 + 1
         $(this).prev().attr('value', num2)
+        var price = parseInt($(this).parent().prev().children().html())
+        var total = num2 * price
+        $(this).parent().next().children().html(total)
         var goodsid = $(this).attr('goodsid')
         var operating = $(this).html()
         $.get('/updataCart/', {'goodsid':goodsid, 'num':num2, 'operating':operating})
@@ -244,5 +247,98 @@ $(function () {
         $(this).parent().parent().parent().empty()
         $(this).parent().parent().parent().removeClass()
     })
+
+    // var tag = 0
+    // $('#quanxuan[type="checkbox"]').removeAttr('checked')
+    // $('.wareM4_c1 input[type="checkbox"]').removeAttr('checked')
+    // $('#quanxuan').on('click', function () {
+    //     var status = $('#quanxuan[type="checkbox"]').is(':checked')
+    //     if (status == true){
+    //         $('.wareM4_c1 input[type="checkbox"]').prop('checked', 'true')
+    //         $('.wareM4_c1 input[type="checkbox"]').attr('checked', 'true')
+    //         $('.wareM2_left b').html('取消全选')
+    //         $('.wareM4_c1 input[type="checkbox"]').each(function () {
+    //             tag += 1
+    //         })
+    //         $('#buy_number').html(tag)
+    //     } else {
+    //         $('.wareM4_c1 input[type="checkbox"]').removeAttr('checked')
+    //         $('.wareM2_left b').html('全选')
+    //         tag = 0
+    //         $('#buy_number').html(tag)
+    //     }
+    // })
+
+    // $('.wareM4 input[type="checkbox"]').on('click', function () {
+    //     if (status == true){
+    //         alert(status)
+    //         tag += 1
+    //         $('#buy_number').html(tag)
+    //     } else {
+    //         tag -= 1
+    //         $('#buy_number').html(tag)
+    //     }
+    // })
+
+
+
+    var tag = 0
+    $('#quanxuan[type="checkbox"]').removeAttr('checked')
+    $('.wareM4_c1 input[type="checkbox"]').removeAttr('checked')
+    $('#quanxuan').on('click', function () {
+        var status = $('#quanxuan[type="checkbox"]').attr('isselect')
+        if (status == 'true'){
+            $(this).attr('isselect', 'false')
+            $('.wareM4_c1 input[type="checkbox"]').removeAttr('checked')
+            $('.wareM4_c1 input[type="checkbox"]').attr('isselect', 'false')
+            $('.wareM2_left b').html('全选')
+            tag = 0
+            $('#buy_number').html(tag)
+        } else {
+            tag = 0
+            $(this).attr('isselect', 'true')
+            $('.wareM4_c1 input[type="checkbox"]').prop('checked', 'true')
+            $('.wareM4_c1 input[type="checkbox"]').attr('isselect', 'true')
+            $('.wareM2_left b').html('取消全选')
+            $('.wareM4_c1 input[type="checkbox"]').each(function () {
+                tag += 1
+            })
+            $('#buy_number').html(tag)
+        }
+    })
+
+    $('.wareM4 input[type="checkbox"]').on('click', function () {
+        $('#quanxuan[type="checkbox"]').removeAttr('checked')
+        $('#quanxuan[type="checkbox"]').attr('isselect', 'false')
+        $('.wareM2_left b').html('全选')
+        var status = $(this).attr('isselect')
+        if (status == 'true'){
+            $(this).attr('isselect', 'false')
+            tag -= 1
+            $('#buy_number').html(tag)
+        } else {
+            $(this).attr('isselect', 'true')
+            tag += 1
+            $('#buy_number').html(tag)
+        }
+
+
+        var tip = 0
+        $('.wareM4_c1 input[type="checkbox"]').each(function () {
+            tip += 1
+        })
+        if (tip == tag){
+            $('#quanxuan[type="checkbox"]').attr('isselect', 'true')
+            $('#quanxuan[type="checkbox"]').prop('checked', 'true')
+            $('.wareM2_left b').html('取消全选')
+        }
+
+
+
+    })
+
+
+
+
 
 })

@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'index.html' %}
 <!DOCTYPE html>
 <html>
 {% block head %}
@@ -74,7 +74,7 @@
 				</div>
 				<div class="wareM2">
 					<div class="wareM2_left">
-						<input type="checkbox"  id="quanxuan" />
+						<input type="checkbox" id="quanxuan" />
 						<b>全选</b>
 					</div>
 					<span class="one">商品</span>
@@ -89,20 +89,21 @@
 
                 {% for cart in carts %}
                     <div class="wareM4">
-                           <div class="wareM4_c1"><input class="check" type="checkbox"></div>
-                           <div class="wareM4_c2"><img style="margin-top: 18px" src="{{ cart.commodity.img_l }}">
-                               <div class="mingchen" style="margin-top: 18px" ><a href="#">[特卖] {{ cart.commodity.product }}</a><span>特卖</span>
-                               </div>
-                           </div>
-                           <div class="wareM4_c3"><strong>{{ cart.commodity.price }}</strong></div>
-                           <div class="wareM4_c4">
-                               <button class="button11" goodsid="{{ cart.commodity.id }}">-</button>
-                               <input type="text" value="{{ cart.number }}">
-                               <button class="button22" goodsid="{{ cart.commodity.id }}">+</button>
-                           </div>
-                           <div class="wareM4_c5"><span>{{ total_price }}</span></div>
-                           <div class="wareM4_c6"><a><img src="img/laji.png" goodsid="{{ cart.commodity.id }}"></a></div>
-                       </div>
+                        <div class="wareM4_c1"><input class="check" type="checkbox" ></div>
+                        <div class="wareM4_c2"><img style="margin-top: 18px" src="{{ cart.commodity.img_l }}">
+                            <div class="mingchen" style="margin-top: 18px"><a
+                                    href="#">[特卖] {{ cart.commodity.product }}</a><span>特卖</span>
+                            </div>
+                        </div>
+                        <div class="wareM4_c3"><strong>{{ cart.commodity.price }}</strong></div>
+                        <div class="wareM4_c4">
+                            <button class="button11" goodsid="{{ cart.commodity.id }}">-</button>
+                            <input type="text" value="{{ cart.number }}">
+                            <button class="button22" goodsid="{{ cart.commodity.id }}">+</button>
+                        </div>
+                        <div class="wareM4_c5"><span>{{ cart.total }}</span></div>
+                        <div class="wareM4_c6"><a><img src="img/laji.png" goodsid="{{ cart.commodity.id }}"></a></div>
+                    </div>
                 {% endfor %}
 
 
@@ -118,10 +119,13 @@
 				<div class="wareM6">
 					<a href="/index/"> < &nbsp;继续购物 </a>
 					<div class="wareM6_right">
-						<button style="color: white">去结算</button>
+                        <a href="/order/">
+                            <button style="color: white">去结算</button>
+                        </a>
 						<div class="wareM6_right_p">
-							<p>已选<span>1</span>件商品，合计（不含运费及税费）<span id="s1">$0.00&nbsp;</span></p>
-							<p>商品总计：<span id="s2">$0.00</span>活动优惠：<span></span>$0.00</p>
+                            <p>已选&nbsp;<span id="buy_number" style="color: #ff2664; font-size: 20px">0</span>&nbsp;件商品<span id="s1">&nbsp;</span></p>
+{#							<p>已选&nbsp;<span id="buy_number" style="color: #ff2664; font-size: 20px"> 0 </span>&nbsp;件商品，合计&nbsp;(不含运费及税费)&nbsp;<span id="s1">$0.00&nbsp;</span></p>#}
+{#							<p>商品总计：<span id="s2">$0.00</span>活动优惠：<span></span>$0.00</p>#}
 						</div>
 						<div class="clear">
 
