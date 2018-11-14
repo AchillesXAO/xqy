@@ -1,0 +1,435 @@
+.concent_top{
+	width: 100%;
+	min-width: 1190px;
+}
+.concent_topM{
+	
+	padding-bottom: 50px;
+	margin: 0 auto;
+	width: 990px;
+	margin-top: 20px;
+}
+.concent_topM_top{
+	color: #999;
+	font-size: 12px;
+	margin-bottom: 20px;
+}
+
+.concent_topM_top b{
+	font-weight: normal;
+}
+
+.concent_topM_top a{
+	color: #999;
+}
+.concent_topM_top a:hover{
+	color: rgb(225,4,130);
+}
+.concent_topM_bottom_l_title img{
+	height: 36px;
+	width: 36px;
+}
+
+#fangdajing{
+	height: 360px;
+	width: 580px;
+	position: relative;
+}
+
+#fangdajing_l{
+	display: none;
+	position: absolute;
+	height: 180px;
+	width: 290px;
+	background: rgba(0,0,0,1);
+	z-index: 100;
+}
+
+#fangdajing_r{
+	display: none;
+	position: absolute;
+	height: 360px;
+	width: 580px;
+	background: black;
+	left: 800px;
+	top: 10px;
+	overflow: hidden;
+	z-index: 100;
+}
+
+#fangdajing_r img{
+	position: absolute;
+	height: 720px;
+	width: 1160px;
+}
+
+.concent_topM_bottom_l_title span{
+	position: relative;
+	top: -10px;
+	font-size: 18px;
+	line-height: 30px;
+}
+
+.concent_topM_bottom_l p{
+	height: 35px;
+	line-height: 35px;
+}
+
+.concent_topM_bottom_l a{
+	position: relative;
+	top: 7px;
+	padding-left: 4px;
+}
+
+.concent_topM_bottom_l{
+	position: relative;
+	float: left;
+	width: 580px;
+}
+
+.concent_topM_bottom_l p img{
+	opacity: 0.7;
+}
+
+.fangdajing {
+	position: absolute;
+	opacity: 0.9;
+	z-index: 101;
+	width: 580px;
+	height: 360px;
+}
+
+.erweima{
+	z-index: 200;
+	display: none;
+	top: 270px;
+	left: -20px;
+	position: absolute;
+}
+.concent_topM_bottom_r{
+	float: left;
+	margin-left: 25px;
+	width: 385px;
+}
+
+
+
+.shizhong{
+	height: 45px;
+}
+
+.jieshao p{
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.price{
+	padding-top: 10px;
+}
+
+.price em{
+	font-size: 30px;
+	position: relative;
+	top: -8px;
+	padding-right: 5px;
+	color: rgb(225,4,130);
+}
+
+.price b{
+	font-size: 54px;
+	color: rgb(225,4,130);
+}
+
+.price a{
+	float: right;
+	color: #333;
+	font-size: 12px;
+	line-height: 54px;
+}
+
+.price a:hover{
+	text-decoration: underline;
+}
+
+.price_p {
+	color: #999;
+	font-size: 14px;
+	margin-bottom: 8px;
+}
+
+.price_p span:first-child{
+	margin-right: 44px;
+	text-decoration: line-through;
+	margin-left: 5px;
+	font-weight: bold;
+}
+
+.price_p i{
+	height: 20px;
+	width: 20px;
+	border-radius: 4px;
+	line-height: 20px;
+	text-align: center;
+	display: inline-block;
+	margin-right: 15px;
+	background: rgb(253,164,48);
+	color: #fff;
+}
+
+.baoyou {
+	margin-top: 6px;
+	color: #333;
+	font-size: 14px;
+}
+
+.baoyou span{
+	background: #e10482;
+	margin-right: 10px;
+	width: 38px;
+	display: inline-block;
+	text-align: center;
+	height: 20px;
+	line-height: 20px;
+	color: #fff;
+	border-radius: 4px;
+}
+
+.fahuo {
+	margin: 15px 0;
+	color: #333;
+	font-size: 14px;
+}
+
+.shuliang{
+	margin: 15px 0;
+}
+
+.shuliang .jian{
+	cursor: pointer;
+	height:28px ;
+	width: 28px;
+	color: #686868;
+	font-size: 20px;
+	border: 1px solid #686868;
+	background: #fff;
+	border-radius: 4px 0 0 4px;
+}
+.shuliang input{
+	text-align: center;
+	height: 26px;
+	width: 48px;
+	position: relative;
+	top: -2px;
+	border: 1px solid #686868;
+}
+
+.shuliang .jia{
+	cursor: pointer;
+	height:28px ;
+	width: 28px;
+	color: #686868;
+	font-size: 20px;
+	border: 1px solid #686868;
+	background: #fff;
+	border-radius: 0 4px 4px 0;
+}
+
+.goumai{
+	position: relative;
+}
+
+.goumai button{
+	outline: none;
+	cursor: pointer;
+	height: 50px;
+	width: 170px;
+	border-radius:30px ;
+	margin-right: 20px;
+	color: #fff;
+	border: #fff;
+	font-size: 20px;
+}
+
+.goumai button:hover{
+	opacity: 0.7;
+}
+
+.goumai button:first-child{
+	background: #000;
+}
+
+.goumai button:last-child{
+	background: rgb(225,4,130);
+}
+
+.groom{
+	width: 100%;
+	min-width: 1190px;
+	background: rgb(245,245,245);
+	border: solid darkblue 3px;
+}
+.groomM{
+	width: 990px;
+	margin: 0 auto;
+}
+
+.groomM_left{
+	float: left;
+	width: 240px;
+	background: #fff;
+}
+
+.groomM_left li{
+	width: 200px;
+	height: 105px;
+	margin: 20px;
+	border-bottom: rgb(238,238,238) solid 2px;
+	background: #fff;
+}
+
+.groomM_left p{
+	width: 125px;
+	float: left;
+	font-size: 14px;
+	height: 36px;
+	line-height: 18px;
+	color: #000000;
+	overflow: hidden; 
+	margin-bottom: 8px;
+}
+
+.groomM_left b{
+	margin-top:10px ;
+	color: rgb(225,4,130);
+}
+
+.groomM_left img{
+	float: left;
+	height: 64px;
+	width: 64px;
+}
+
+.groomM_left h3{
+	padding-top: 25px;
+	height: 36px;
+	line-height: 36px;
+	border-bottom: 2px solid black;
+	background: rgb(245,245,245);
+}
+
+.groomM_right {
+	margin-left: 30px;
+	float: left;
+	width: 720px;
+}
+
+.groomM_right_b{
+	position: relative;
+	background: #fff;
+	border-top: 2px solid black;
+	float: left;
+}
+
+.groomM_right ul{
+	margin-left: 10px;
+}
+
+.groomM_right li{
+	cursor: pointer;
+	float: left;
+	height: 38px;
+	line-height: 38px;
+	margin: 21px 25px 0 25px;
+	background: rgb(245,245,245);
+	
+}
+
+.groomM_right li:first-child{
+	color: rgb(225,4,130);
+	border-bottom: 2px solid rgb(225,4,130);
+}
+.groomM_right li:last-child:hover{
+	color: rgb(225,4,130);
+	border-bottom: 2px solid rgb(225,4,130);
+}
+
+.groomM_right_b h4{
+	width: 680PX;
+	margin: 40PX 0 40px 35px;
+	font-size: 24px;
+	font-weight: bold;
+	height: 26px;
+}
+.groomM_right_b dt img{
+	position: absolute;
+	height: 240px;
+	width: 240px;
+	left: 400px;
+	top: 00px;
+}
+
+.groomM_right_b dl{
+	position: relative;
+	left: 110px;
+}
+.groomM_right_b dd{
+	color: #333;
+	margin-bottom: 20px;
+	width: 350px;
+	margin-left: 35px;
+	font-size: 14px;
+}
+.groomM_right_b dd span{
+	margin-left: -110px;
+	text-align: right;
+	display: inline-block;
+	width: 100px;
+	padding-right: 10px;
+	color: #999;
+}
+
+.groomM_right_b dd b{
+	font-weight: normal;
+	
+}
+
+.img_jieshao img{
+	margin-top: -3px;
+}
+
+
+.criticism{
+	display: none;
+	background: #fff;
+	font-size: 14px;
+}
+
+
+
+.criticism_con{
+	border-bottom: 1px solid #eee;
+	padding: 30px 0;
+	margin: 0 50px;
+}
+
+.criticism_con img{
+	border-radius: 50%;
+	float: left;
+	height: 60px;
+	width: 60px;
+}
+
+.criticism_con_right{
+	margin-left: 20px;
+	float: left;
+}
+.criticism_con_rightT{
+	margin:10px 0;
+}
+
+.criticism_con_rightT span:nth-child(2){
+	margin-left: 15px;
+	color: #999;
+}
+
+
