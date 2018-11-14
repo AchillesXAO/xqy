@@ -12,10 +12,6 @@
 		<link rel="stylesheet" type="text/css" href="/static/css/basic.css"/>
 		<link rel="stylesheet" type="text/css" href="/static/css/shoppingCart.css"/>
 
-<<<<<<< HEAD
-        <script src="/static/js/order.js" type="text/javascript" charset="utf-8"></script>
-=======
->>>>>>> a36aa4bce93d11a07836f67b965861f5ca724ad5
         <script src="/static/js/reset_static.js" type="text/javascript" charset="utf-8"></script>
 
 	</head>
@@ -71,54 +67,26 @@
 		<div class="ware">
 			<div class="wareM">
 				<div class="wareM1">
-					<img src="img/zhuangtai1.png"/>
+					<img src="img/zhuangtai0.png"/>
 					<span>1.购物袋</span>
 					<span>2.确认订单信息</span>
 					<span>3.付款</span>
 				</div>
 				<div class="wareM2">
 					<div class="wareM2_left">
-<<<<<<< HEAD
-
-=======
 						<input type="checkbox" id="quanxuan" />
 						<b>全选</b>
->>>>>>> a36aa4bce93d11a07836f67b965861f5ca724ad5
 					</div>
 					<span class="one">商品</span>
 					<span class="twe">单价</span>
 					<span class="three">数量</span>
 					<span class="three">小计</span>
-<<<<<<< HEAD
-
-=======
 					<span class="three">操作</span>
->>>>>>> a36aa4bce93d11a07836f67b965861f5ca724ad5
 				</div>
 				<!--加载-->
 				<!--加载结束-->
 
 
-<<<<<<< HEAD
-                {% for order in orders %}
-                    <div class="wareM4">
-                        <div class="wareM4_c1"></div>
-                        <div class="wareM4_c2"><img style="margin-top: 18px" src="{{ order.cart.commodity.img_l }}">
-                            <div class="mingchen" style="margin-top: 18px"><a
-                                    href="#">[特卖] {{ order.cart.commodity.product }}</a><span>特卖</span>
-                            </div>
-                        </div>
-                        <div class="wareM4_c3"><strong>{{ order.cart.commodity.price }}</strong></div>
-                        <div class="wareM4_c4">
-{#                            <button class="button11" goodsid="{{ order.cart.commodity.id }}">-</button>#}
-                            <span style="margin-left: 55px">{{ order.cart.number }}</span>
-{#                            <button class="button22" goodsid="{{ order.cart.commodity.id }}">+</button>#}
-                        </div>
-                        <div class="wareM4_c5"><span>{{ order.cart.total }}</span></div>
-                        <div class="wareM4_c6">
-
-                        </div>
-=======
                 {% for cart in carts %}
                     <div class="wareM4">
                         <div class="wareM4_c1"><input class="check" type="checkbox" ></div>
@@ -135,7 +103,6 @@
                         </div>
                         <div class="wareM4_c5"><span>{{ cart.total }}</span></div>
                         <div class="wareM4_c6"><a><img src="img/laji.png" goodsid="{{ cart.commodity.id }}"></a></div>
->>>>>>> a36aa4bce93d11a07836f67b965861f5ca724ad5
                     </div>
                 {% endfor %}
 
@@ -150,24 +117,14 @@
 {#                </div>#}
 
 				<div class="wareM6">
-<<<<<<< HEAD
-					<div class="wareM6_right">
-{#                        <a href="/payorder/">#}
-						    <button id="alipay" style="color: white">确认支付</button>
-{#                        </a>#}
-						<div class="wareM6_right_p">
-{#                            <p>已选&nbsp;<span id="buy_number" style="color: #ff2664; font-size: 20px">0</span>&nbsp;件商品<span id="s1">&nbsp;</span></p>#}
-							<p>已选&nbsp;<span id="buy_number" style="color: #ff2664; font-size: 20px">0</span>&nbsp;件商品，合计&nbsp;(不含运费及税费)&nbsp;<span id="s1">$0.00</span>&nbsp;</p>
-=======
 					<a href="/index/"> < &nbsp;继续购物 </a>
 					<div class="wareM6_right">
-                        <a href="/pay/">
-						    <button style="color: white">去付款</button>
+						<a href="/pay/">
+						    <button style="color: white">确认支付</button>
                         </a>
 						<div class="wareM6_right_p">
                             <p>已选&nbsp;<span id="buy_number" style="color: #ff2664; font-size: 20px">0</span>&nbsp;件商品<span id="s1">&nbsp;</span></p>
 {#							<p>已选&nbsp;<span id="buy_number" style="color: #ff2664; font-size: 20px"> 0 </span>&nbsp;件商品，合计&nbsp;(不含运费及税费)&nbsp;<span id="s1">$0.00&nbsp;</span></p>#}
->>>>>>> a36aa4bce93d11a07836f67b965861f5ca724ad5
 {#							<p>商品总计：<span id="s2">$0.00</span>活动优惠：<span></span>$0.00</p>#}
 						</div>
 						<div class="clear">

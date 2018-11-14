@@ -1,13 +1,20 @@
 import hashlib
+<<<<<<< HEAD
 import random
+=======
+>>>>>>> a36aa4bce93d11a07836f67b965861f5ca724ad5
 import uuid
 
 from django.contrib.auth import logout
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
+<<<<<<< HEAD
 
 from app.alipay import alipay_xqy
 from app.models import User, Wheel, Commodity, Cart, Order
+=======
+from app.models import User, Wheel, Commodity, Cart
+>>>>>>> a36aa4bce93d11a07836f67b965861f5ca724ad5
 
 
 # Create your views here.
@@ -159,6 +166,14 @@ def shoppingCart(request):
     if token:  # 登录
         user = User.objects.get(token=token)
         carts = Cart.objects.filter(user=user).exclude(number=0)
+<<<<<<< HEAD
+=======
+        # print('################')
+        # print('################')
+        # print(carts.count())
+        # print('################')
+        # print('################')
+>>>>>>> a36aa4bce93d11a07836f67b965861f5ca724ad5
         for cart in carts:
             price = int(cart.commodity.price.split('.')[0])
             number = int(cart.number)
@@ -333,6 +348,7 @@ def updataCart(request):
 
 
 def order(request):
+<<<<<<< HEAD
     cart = Cart.objects.all()
     pay_number = cart.count()
 
@@ -402,3 +418,10 @@ def pay(request):
     alipay_url = 'https://openapi.alipaydev.com/gateway.do?{data}'.format(data=url)
 
     return JsonResponse({'alipay_url': alipay_url})
+=======
+    return render(request, 'order.html')
+
+
+def pay(request):
+    return render(request, 'pay.html')
+>>>>>>> a36aa4bce93d11a07836f67b965861f5ca724ad5

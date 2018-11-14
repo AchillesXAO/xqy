@@ -41,6 +41,7 @@ class Cart(models.Model):
     commodity = models.ForeignKey(Commodity)
     number = models.IntegerField(default=1)
     total = models.IntegerField(default=0)
+<<<<<<< HEAD
     isselect = models.BooleanField(default=True)
 
 
@@ -48,3 +49,6 @@ class Cart(models.Model):
 class Order(models.Model):
     user = models.ForeignKey(User)
     cart = models.ForeignKey(Cart)
+=======
+    isselect = models.BooleanField(default=True)
+>>>>>>> a36aa4bce93d11a07836f67b965861f5ca724ad5

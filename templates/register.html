@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends 'index.html' %}
 <!DOCTYPE html>
 <html>
@@ -129,3 +130,136 @@
 		{% endblock %}
 	</body>
 </html>
+=======
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html>
+{% block head %}
+	<head>
+		<meta charset="UTF-8">
+		<title>嗨淘全球-注册</title>
+		<script src="/static/js/jquery-1.12.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="/static/css/register.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/css/basic.css"/>
+		<script src="/static/js/basic.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/js/register.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="/static/js/reset_static.js" type="text/javascript" charset="utf-8"></script>
+
+	</head>
+{% endblock %}
+	<body>
+        {% block content %}
+		<!--头部-->
+		<div class="head_main_middle">
+				<div class="head_main_middleM">
+					<div class="head_main_middleM_left">
+						<a href="#"><img src="img/search.png"/></a>
+						<img  src="img/hitao.png"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+		</div>
+		<!--提示内容join-->
+		<div class="jion">
+			<div class="jionM">
+				<div class="jionM_left1">
+					
+				</div>
+				<div class="jionM_left2">
+					欢迎注册加入嗨淘全球
+				</div>
+				<div class="jionM_right">
+					已是嗨淘全球会员？
+					<a href="/entry/">去登陆</a>
+				</div>
+				<div class="clear">
+					
+				</div>
+			</div>
+			<div class="clear">
+				
+			</div>
+		</div>
+		<div class="register">
+			<div class="registerM">
+				<div class="registerM_left">
+					<img src="img/register.jpg"/>
+				</div>
+
+                <form action="/register/" method="post">
+                {% csrf_token %}
+				    <div class="registerM_right">
+					<div class="registerM_right1">
+						<span>账号</span>
+						<input type="text" id="phone" name="phone" placeholder="请输入您的手机号"  maxlength="11" />
+						<p>@请输入正确的手机号码</p>
+					</div>
+					<div class="registerM_right2">
+						<span>密码</span>
+						<input type="password" id="password" name="password" placeholder="请输入密码"  maxlength="20" />
+						<p>@请输入6-20位字母、数字或字符</p>
+					</div>
+					<img id="yanjing" src="img/yanjing.png"/>
+					<div class="registerM_right3">
+						<span>验证码</span>
+						<input type="text"  id="code" placeholder="请输入验证码"  maxlength="4"/>
+						<i></i>
+						<p>@请输入正确的验证码</p>
+					</div>
+					<div class="registerM_right4">
+						<input type="submit" id="reg" value="注册" />
+					</div>
+				</div>
+                </form>
+
+				<div class="clear">
+					
+				</div>
+			</div>
+		</div>
+		<!--尾部-->
+		<div class="foot">
+			<div class="foot_middle">
+				<div class="foot_middleM">
+					<div class="foot_middleM_left">
+						<span><img src="img/dianhua.png"/></span>
+						<span>4008-006-006</span>
+					</div>
+					<div class="foot_middleM_right">
+						<ul>
+							<li><a href="#">公司简介</a></li>
+							<li><a href="#">联系我们</a></li>
+							<li><a href="#">大事记</a></li>
+							<li><a href="#">人才招募</a></li>
+							<li><a href="#">帮助中心</a></li>
+							<li><a href="#">法律说明</a></li>
+							<li><a href="#">合作专区</a></li>
+							<li><a href="#">友情链接</a></li>
+						</ul>
+					</div>
+					<div class="clear">
+						
+					</div>
+				</div>
+			</div>
+			<div class="foot_bottom">
+				<div class="foot_bottomM">
+					<div class="foot_bottomM_top">
+						<p>Copyright © 2010 - 2016, 版权所有 HITAO.TOP    湘ICP备10012668号-3  嗨淘全球网　|　<a href="#">营业执照</a></p>
+					</div>
+					<div class="foot_bottomM_right">
+						<a href="#"><img src="img/foot0.png"/></a>
+						<a href="#"><img src="img/foot1.png"/></a>
+						<a href="#"><img src="img/foot2.png"/></a>
+						<a href="#"><img src="img/foot3.png"/></a>
+						<a href="#"><img src="img/foot4.png"/></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endblock %}
+	</body>
+</html>
+>>>>>>> a36aa4bce93d11a07836f67b965861f5ca724ad5

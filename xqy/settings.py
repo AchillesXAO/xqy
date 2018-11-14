@@ -25,7 +25,11 @@ SECRET_KEY = '2y7)(g2y=nx8aiiu5-te4&76z5-mw)=-q%-(ik4ld17fvqijje'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['*']
+=======
+ALLOWED_HOSTS = []
+>>>>>>> a36aa4bce93d11a07836f67b965861f5ca724ad5
 
 
 # Application definition
@@ -105,7 +109,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
+<<<<<<< HEAD
 LANGUAGE_CODE = 'zh-Hans'
+=======
+LANGUAGE_CODE = 'en-us'
+>>>>>>> a36aa4bce93d11a07836f67b965861f5ca724ad5
 
 TIME_ZONE = 'UTC'
 
@@ -123,7 +131,11 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
+<<<<<<< HEAD
 ]
 
 # 支付相关key
 ALIPAY_ROOT = os.path.join(BASE_DIR, 'static/key')
+=======
+]
+>>>>>>> a36aa4bce93d11a07836f67b965861f5ca724ad5

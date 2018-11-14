@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends 'index.html' %}
 <!DOCTYPE html>
 <html>
@@ -1114,3 +1115,1121 @@
 	</body>
 
 </html>
+=======
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html>
+{% block head %}
+	<head>
+		<meta charset="UTF-8">
+		<title>{{ goods.product }}</title>
+		<link rel="stylesheet" type="text/css" href="/static/css/basic.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/css/detail.css"/>
+		<script src="/static/js/jquery-1.12.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/js/basic.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="/static/js/reset_static.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/static/js/addToCart.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="/static/js/detail.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+{% endblock %}
+
+	<body>
+        {% block content %}
+		<div class="head_main"> 
+			<!--登录，注册，订单，收藏栏目-->
+			<div class="head_main_top">
+				<div class="head_main_topM">
+					<div class="head_main_topM_left">
+
+                        {% if login == '登录' %}
+                            <a href="/entry/">{{ login }}</a>
+						    <a href="/register/">{{ register }}</a>
+                        {% else %}
+                            <a href="/entry/"> 欢迎您, &nbsp;{{ login }}</a>
+						    <a href="/quit/">[{{ register }}]</a>
+                        {% endif %}
+
+						<a href="#"><img src="img/headshouji.png"/>手机版</a>
+					</div>
+					<div class="head_main_topM_right">
+						<a href="#">我的订单</a>
+						<span>|</span>
+						<a href="#">我的优惠券</a>
+						<span>|</span>
+						<a href="#">我的收藏</a>
+						<span>|</span>
+						<a href="#">帮助中心</a>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<!--搜索栏-->
+			<div class="head_main_middle">
+				<div class="head_main_middleM">
+					<div class="head_main_middleM_left">
+						<a href="#"><img src="img/search.png"/></a>
+						<img  src="img/hitao.png"/>
+					</div>
+					<div class="head_main_middleM_right">
+						<input type="text"id="input1" placeholder="搜索商品"/><input type="button"  id="input2" value="搜索" />
+						<div class="head_main_middleM_rightM">
+							<a href="#">面霜</a><a href="#">|面膜</a><a href="#">|洁面</a><a href="#">|奶粉</a><a href="#">|纸尿裤</a><a href="#">|辅食</a><a href="#">|宝宝营养</a><a href="#">|唇部彩妆</a><a href="#">|身体护理</a><a href="#">|香氛</a>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<!--导航栏-->
+			<div class="head_main_bottom">
+				<div class="head_main_bottomM">
+					<div class="head_main_bottomM_left">
+						<span><a href="/index/">首页</a></span><span><a href="#">全球特卖</a></span>
+					</div>
+					<div class="head_main_bottomM_right">
+						<span><img src="img/xiala.png"/></span>
+						<span>查看分类</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="concent_top">
+			<div class="concent_topM">
+				<!--下拉列表-->
+				<ul >
+					<li>面部护理</li>
+					<li>个人护理</li> 
+					<li>时尚彩妆</li>
+					<li>香薰精油</li>
+					<li>婴幼儿</li>
+					<li>孕产妇</li>
+					<li>营养保健</li>
+					<li>荷兰直邮</li>
+				</ul>
+				<!--下拉列表右栏-->
+				<div class="assortment_f">
+					<div class="assortment">
+						<h3>洁面</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">洁面膏/霜</a>
+							<a href="#">洁肤皂</a>
+							<a href="#">洁面摩丝/泡沫</a>
+							<a href="#">洁面啫喱/胶</a>
+							<a href="#">洁面乳</a>
+							<a href="#">面部去角质</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>爽肤水/化妆水</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">爽肤水</a>
+							<a href="#">美容液</a>
+							<a href="#">喷雾</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>面膜</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">面膜帖</a>
+							<a href="#">免洗面膜</a>
+							<a href="#">水洗面膜</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>乳液/面霜</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">乳液</a>
+							<a href="#">面霜</a>
+							<a href="#">日霜</a>
+							<a href="#">晚霜</a>
+							<a href="#">凝露/凝胶/啫喱</a>
+							<a href="#">防晒/修复</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>眼部/T区/唇部护理</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">眼罩</a>
+							<a href="#">眼霜</a>
+							<a href="#">眼部精华</a>
+							<a href="#">眼膜</a>
+							<a href="#">鼻膜</a>
+							<a href="#">护唇膏</a>
+							<a href="#">唇膜</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>精华</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">精华液/露</a>
+							<a href="#">精华乳/霜</a>
+							<a href="#">原液</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>护肤套装</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">护肤套装</a>
+							<a href="#">套装小样</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>男士护肤</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">洁面</a>
+							<a href="#">乳液/面霜</a>
+							<a href="#">爽肤水</a>
+							<a href="#">精华</a>
+							<a href="#">面膜</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>直邮活动商品专区</h3>
+						<div class="assortmentM" >
+							<hr />
+						</div>
+					</div>
+					<button>查看全部品牌&gt;</button>
+				</div>
+				<div class="assortment_f">
+					<div class="assortment">
+						<h3>个人洗护</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">洗发</a>
+							<a href="#">护发</a>
+							<a href="#">洗护套餐</a>
+							<a href="#">沐浴露</a>
+							<a href="#">香皂</a>
+							<a href="#">美发造型</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>身体护理</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">喷雾</a>
+							<a href="#">身体乳/精华</a>
+							<a href="#">毛周去角质</a>
+							<a href="#">颈部护理</a>
+							<a href="#">塑身</a>
+							<a href="#">丰胸</a>
+							<a href="#">香体液</a>
+							<a href="#">手霜/手膜</a>
+							<a href="#">足部霜/足膜</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>美发工具</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">美发质</a>
+						</div>
+					</div>
+					
+					<div class="assortment">
+						<h3>女性用品</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">卫生巾</a>
+						</div>
+					</div>
+					<button>查看全部品牌&gt;</button>
+				</div>
+				<div class="assortment_f">
+					<div class="assortment">
+						<h3>底妆遮瑕</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">遮瑕/修颜</a>
+							<a href="#">BB霜/CC霜</a>
+							<a href="#">隔离霜/妆前乳</a>
+							<a href="#">粉饼</a>
+							<a href="#">腮红/胭脂</a>
+							<a href="#">蜜粉/散粉</a>
+							<a href="#">粉底液/膏</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>眼部彩妆</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">眼线膏/液</a>
+							<a href="#">染眉膏</a>
+							<a href="#">睫毛膏</a>
+							<a href="#">眼线笔</a>
+							<a href="#">眼影</a>
+							<a href="#">眉笔/眉粉</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>卸妆</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">卸妆液</a>
+							<a href="#">卸妆油</a>
+							<a href="#">卸妆膏</a>
+						</div>
+					</div>
+					
+					<div class="assortment">
+						<h3>唇部彩妆</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">唇膏/口红</a>
+							<a href="#">唇彩/唇蜜</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>彩妆工具</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">化妆刷</a>
+							<a href="#">化妆棉/卸妆棉</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>彩妆套餐</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">彩妆盒</a>
+							<a href="#">彩妆套餐</a>
+						</div>
+					</div>
+					<button>查看全部品牌&gt;</button>
+				</div>
+				<div class="assortment_f">
+					<div class="assortment">
+						<h3>香水</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">男士香水</a>
+							<a href="#">女士香水</a>
+							<a href="#">中性香水</a>
+							<a href="#">套装香水</a>
+						</div>
+					</div>
+					<button>查看全部品牌&gt;</button>
+				</div>
+				<div class="assortment_f">
+					<div class="assortment">
+						<h3>奶粉</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">1段</a>
+							<a href="#">1+段</a>
+							<a href="#">2段</a>
+							<a href="#">2+段</a>
+							<a href="#">3段</a>
+							<a href="#">4段</a>
+							<a href="#">5段</a>
+							<a href="#">6段</a>
+							<a href="#">特殊配方奶粉</a>
+							<a href="#">pre段</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>宝宝辅食</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">米粉</a>
+							<a href="#">饼干</a>
+							<a href="#">泡芙</a>
+							<a href="#">果蔬肉泥</a>
+							<a href="#">果汁</a>
+							<a href="#">零食</a>
+							<a href="#">饮料</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>纸尿裤</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">新生儿</a>
+							<a href="#">S</a>
+							<a href="#">M</a>
+							<a href="#">L</a>
+							<a href="#">XL</a>
+							<a href="#">XXL</a>
+							<a href="#">拉拉裤</a>
+							<a href="#">婴儿湿巾</a>
+							<a href="#">尿垫</a>
+							
+						</div>
+					</div>
+					
+					<div class="assortment">
+						<h3>喂养工具</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">奶瓶/奶嘴</a>
+							<a href="#">水杯餐具</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>日用洗护</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">护肤</a>
+							<a href="#">洗发沐浴</a>
+							<a href="#">驱蚊防虫</a>
+							<a href="#">爽身祛痱</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>宝宝营养</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">DNA</a>
+							<a href="#">维生素</a>
+							<a href="#">钙镁锌铁</a>
+							<a href="#">益生菌</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>宝宝出行</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">安全坐骑</a>
+						</div>
+					</div>
+					<button>查看全部品牌&gt;</button>
+				</div>
+				<div class="assortment_f">
+					<div class="assortment">
+						<h3>孕妈用品/妈妈用品</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">卫生巾/护垫</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>孕妈营养</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">DNA</a>
+							<a href="#">维生素</a>
+							<a href="#">钙镁锌铁</a>
+							<a href="#">叶酸</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>母婴其他用品</h3>
+						<div class="assortmentM" >
+							<hr />
+						</div>
+					</div>
+					<button>查看全部品牌&gt;</button>
+				</div>
+				<div class="assortment_f">
+					<div class="assortment">
+						<h3>植物精华/提取物</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">蔓越莓</a>
+							<a href="#">葡萄籽</a>
+							<a href="#">月见草</a>
+							<a href="#">越橘/蓝莓提取物</a>
+							<a href="#">茶多酚/茶族</a>
+							<a href="#">吗啡提取物</a>
+							<a href="#">蓟类</a>
+							<a href="#">其他植物提取物</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>维生素/矿物质</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">维生素</a>
+							<a href="#">左旋肉碱</a>
+							<a href="#">其他维生素/矿物</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>膳食纤维/碳水化合物</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">酵素</a>
+						</div>
+					</div>
+					
+					<div class="assortment">
+						<h3>蛋白质/氨基酸</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">胶原蛋白质</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>其他营养补充品</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">蜂产品</a>
+						</div>
+					</div>
+					<button>查看全部品牌&gt;</button>
+				</div>
+				<div class="assortment_f">
+					<div class="assortment">
+						<h3>护肤</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">面霜</a>
+							<a href="#">防晒修复</a>
+							<a href="#">爽肤水/化妆水</a>
+							<a href="#">卸妆</a>
+							<a href="#">男士护肤</a>
+							<a href="#">唇膏</a>
+							<a href="#">洁面</a>
+							<a href="#">面膜</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>个人洗护</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">沐浴露</a>
+							<a href="#">身体乳</a>
+							<a href="#">洗发</a>
+							<a href="#">护发</a>
+							<a href="#">个护套餐</a>
+							<a href="#">磨砂</a>
+							<a href="#">香体液/止汗露</a>
+							<a href="#">牙膏</a>
+							<a href="#">手部护理</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>彩妆香瓶</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">香水</a>
+						</div>
+					</div>
+					
+					<div class="assortment">
+						<h3>奶粉</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">婴幼儿奶粉</a>
+							<a href="#">成人奶粉</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>辅食</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">饼干</a>
+							<a href="#">米糊米粉</a>
+							<a href="#">果泥</a>
+							<a href="#">果汁饮料</a>
+							<a href="#">男士护肤</a>
+							<a href="#">唇膏</a>
+							<a href="#">洁面</a>
+							<a href="#">面膜</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>喂养工具</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">奶瓶/奶嘴</a>
+							<a href="#">餐具</a>
+							<a href="#">果泥</a>
+							<a href="#">卸妆</a>
+							<a href="#">果汁饮料</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>宝宝营养/生病护理</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">肠绞痛缓解滴剂</a>
+							<a href="#">维生素</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>宝宝日常护理</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">包巾/纱巾/浴巾</a>
+							<a href="#">日用洗护</a>
+							<a href="#">面霜</a>
+							<a href="#">驱蚊防虫</a>
+							<a href="#">婴儿湿巾</a>
+							<a href="#">牙刷</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>宝宝用品</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">监视器</a>
+							<a href="#">相册</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>滋补保健</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">蜂产品</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>饮品/酒品</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">茶</a>
+							<a href="#">咖啡</a>
+							<a href="#">酒</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>厨房/餐饮用具</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">锅具</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>食品</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">果酱/调味品</a>
+						</div>
+					</div>
+					<button>查看全部品牌&gt;</button>
+				</div>
+				<div class="assortment_f">
+					<div class="assortment">
+						<h3>护肤</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">面霜</a>
+							<a href="#">防晒修复</a>
+							<a href="#">爽肤水/化妆水</a>
+							<a href="#">卸妆</a>
+							<a href="#">男士护肤</a>
+							<a href="#">唇膏</a>
+							<a href="#">洁面</a>
+							<a href="#">面膜</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>个人洗护</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">沐浴露</a>
+							<a href="#">身体乳</a>
+							<a href="#">洗发</a>
+							<a href="#">护发</a>
+							<a href="#">个护套餐</a>
+							<a href="#">磨砂</a>
+							<a href="#">香体液/止汗露</a>
+							<a href="#">牙膏</a>
+							<a href="#">手部护理</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>彩妆香瓶</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">香水</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>奶粉</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">婴幼儿奶粉</a>
+							<a href="#">成人奶粉</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>辅食</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">饼干</a>
+							<a href="#">米糊米粉</a>
+							<a href="#">果泥</a>
+							<a href="#">果汁饮料</a>
+							<a href="#">男士护肤</a>
+							<a href="#">唇膏</a>
+							<a href="#">洁面</a>
+							<a href="#">面膜</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>喂养工具</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">奶瓶/奶嘴</a>
+							<a href="#">餐具</a>
+							<a href="#">果泥</a>
+							<a href="#">卸妆</a>
+							<a href="#">果汁饮料</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>宝宝营养/生病护理</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">肠绞痛缓解滴剂</a>
+							<a href="#">维生素</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>宝宝日常护理</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">包巾/纱巾/浴巾</a>
+							<a href="#">日用洗护</a>
+							<a href="#">面霜</a>
+							<a href="#">驱蚊防虫</a>
+							<a href="#">婴儿湿巾</a>
+							<a href="#">牙刷</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>宝宝用品</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">监视器</a>
+							<a href="#">相册</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>滋补保健</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">蜂产品</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>饮品/酒品</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">茶</a>
+							<a href="#">咖啡</a>
+							<a href="#">酒</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>厨房/餐饮用具</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">锅具</a>
+						</div>
+					</div>
+					<div class="assortment">
+						<h3>食品</h3>
+						<div class="assortmentM" >
+							<hr />
+							<a href="#">果酱/调味品</a>
+						</div>
+					</div>
+					<button>查看全部品牌&gt;</button>
+				</div>
+				<div class="concent_topM_top">
+					<span><a href="/index/">首页</a> > <b>{{ goods.product }}</b></span>
+				</div>
+				<div class="concent_topM_bottom">
+					<div class="concent_topM_bottom_l">
+						<div class="concent_topM_bottom_l_title">
+							<img src="{{ goods.img_r }}"/><span>[特卖] {{ goods.product }}</span>
+						</div>
+						<div id="fangdajing">
+							<div id="fangdajing_l">
+
+							</div>
+							<img class="fangdajing" src="{{ goods.img_l }}"/>
+						</div>
+						<img class="erweima" src="img/erweima.png"/>
+						<p>分享<a href="#"><img class="weixin" src="img/lianjie0.png"/></a><a href="#"><img src="img/lianjie1.png"/></a><a href="#"><img src="img/lianjie2.png"/></a></p>
+					</div>
+					<div id="fangdajing_r">
+						<img src=""/>
+					</div>
+					<div class="concent_topM_bottom_r">
+						<div class="shizhong">
+							
+						</div>
+						<div class="concent_topM_bottom_r_sub">
+							<div class="jieshao">
+								<p>{{ goods.introduce }}</p>
+							</div>
+							<div class="price">
+								<em>$</em><b>{{ goods.price }}</b><a href="#">税务说明</a>
+							</div>
+							<div class="price_p">
+								官方指导价<span>{{ goods.price_p }}</span><i>省</i>组合省<span>{{ price_sub }}.00</span>元
+							</div>
+							<div class="baoyou">
+								<span>包邮</span>  全场包邮
+							</div>
+							<div class="fahuo">
+								<span>法国直采 杭州保税仓发货</span>
+							</div>
+							<hr />
+							<div class="shuliang">
+								数量 : <button class="jian">-</button><input type="text" value="1" /><button class="jia">+</button>
+							</div>
+							<div class="goumai">
+								<button id="buy" goodsid="{{ goodsid }}">立即购买</button><button id="addbag" goodsid="{{ goodsid }}">加入购物袋</button>
+							</div>
+						</div>
+					</div>
+					<div class="clear">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="groom">
+			<div class="groomM">
+				<div class="groomM_left">
+					<div class="groomM_left_t">
+						<h3>热销推荐</h3>
+						<ul>
+							<li>
+								<a href="#">
+									<img src="img/tuijian0.jpg"/>
+									<p>L'occitane/欧舒丹 滋润护手霜套装组合（乳木果+玫瑰） 30ml*2支</p>
+									<b>$99.00</b>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/tuijian0.jpg"/>
+									<p>L'occitane/欧舒丹 滋润护手霜套装组合（乳木果+玫瑰） 30ml*2支</p>
+									<b>$99.00</b>
+								</a>
+							</li>
+						</ul>
+						<h3>热销推荐</h3>
+						<ul>
+							<li>
+								<a href="#">
+									<img src="img/tuijian0.jpg"/>
+									<p>L'occitane/欧舒丹 滋润护手霜套装组合（乳木果+玫瑰） 30ml*2支</p>
+									<b>$99.00</b>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/tuijian0.jpg"/>
+									<p>L'occitane/欧舒丹 滋润护手霜套装组合（乳木果+玫瑰） 30ml*2支</p>
+									<b>$99.00</b>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/tuijian0.jpg"/>
+									<p>L'occitane/欧舒丹 滋润护手霜套装组合（乳木果+玫瑰） 30ml*2支</p>
+									<b>$99.00</b>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/tuijian0.jpg"/>
+									<p>L'occitane/欧舒丹 滋润护手霜套装组合（乳木果+玫瑰） 30ml*2支</p>
+									<b>$99.00</b>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="groomM_right">
+					<ul>
+						<li>商品介绍</li>
+						<li>商品评论</li>
+					</ul>
+					<div class="clear">
+						
+					</div>
+					<div class="groomM_right_b">
+						<img src="img/jieshao_t.jpg"/>
+						<h4>产品参数   PRODUCT PARAMETERY</h4>
+						<dl>
+							<dt><img src="{{ goods.img_d }}"/></dt>
+							<dd>
+								<span>保质期:</span>3年
+							</dd>
+							<dd>
+								<span>规格类型：</span>正常规格
+							</dd>
+							<dd>
+								<span>功效：</span><b>{{ goods.introduce }}</b>
+							</dd>
+							<dd>
+								<span>所属分类：</span>身体护理
+							</dd>
+							<dd>
+								<span>净含量：</span>30ml*2支
+							</dd>
+							<dd>
+								<span>产地：</span>法国
+							</dd>
+							<dd>
+								<span>适用肤质：</span>所有肤质
+							</dd>
+							<dd>
+								<span>适用性别：</span>男女通用
+							</dd>
+						</dl>
+						<h4>产品描述   PRODUCT DESCRIPTION</h4>
+						<div class="img_jieshao">
+
+                           {% for img in img_list %}
+                               <img src="{{ img }}" alt="">
+                           {% endfor %}
+
+						</div>
+					</div>
+					<div class="criticism ">
+						<div class="criticism_con">
+							<img src="img/img_list9/touxiang.jpg"/>
+							<div class="criticism_con_right">
+								<div class="criticism_con_rightT">
+									<span>舒霖</span><span>2016-08-08 16:23</span>
+								</div>
+								<div class="criticism_con_rightB">
+									<span>挺好用的就是日期太靠后了没几个月就过期了！</span>
+								</div>
+							</div>
+							<div class="clear">
+								
+							</div>
+						</div>
+						<div class="criticism_con">
+							<img src="img/img_list9/touxiang.jpg"/>
+							<div class="criticism_con_right">
+								<div class="criticism_con_rightT">
+									<span>舒霖</span><span>2016-08-08 16:23</span>
+								</div>
+								<div class="criticism_con_rightB">
+									<span>挺好用的就是日期太靠后了没几个月就过期了！</span>
+								</div>
+							</div>
+							<div class="clear">
+								
+							</div>
+						</div>
+						<div class="criticism_con">
+							<img src="img/img_list9/touxiang.jpg"/>
+							<div class="criticism_con_right">
+								<div class="criticism_con_rightT">
+									<span>舒霖</span><span>2016-08-08 16:23</span>
+								</div>
+								<div class="criticism_con_rightB">
+									<span>挺好用的就是日期太靠后了没几个月就过期了！</span>
+								</div>
+							</div>
+							<div class="clear">
+								
+							</div>
+						</div>
+						<div class="criticism_con">
+							<img src="img/img_list9/touxiang.jpg"/>
+							<div class="criticism_con_right">
+								<div class="criticism_con_rightT">
+									<span>舒霖</span><span>2016-08-08 16:23</span>
+								</div>
+								<div class="criticism_con_rightB">
+									<span>挺好用的就是日期太靠后了没几个月就过期了！</span>
+								</div>
+							</div>
+							<div class="clear">
+								
+							</div>
+						</div>
+						<div class="criticism_con">
+							<img src="img/img_list9/touxiang.jpg"/>
+							<div class="criticism_con_right">
+								<div class="criticism_con_rightT">
+									<span>舒霖</span><span>2016-08-08 16:23</span>
+								</div>
+								<div class="criticism_con_rightB">
+									<span>挺好用的就是日期太靠后了没几个月就过期了！</span>
+								</div>
+							</div>
+							<div class="clear">
+								
+							</div>
+						</div>
+						<div class="criticism_con">
+							<img src="img/img_list9/touxiang.jpg"/>
+							<div class="criticism_con_right">
+								<div class="criticism_con_rightT">
+									<span>舒霖</span><span>2016-08-08 16:23</span>
+								</div>
+								<div class="criticism_con_rightB">
+									<span>挺好用的就是日期太靠后了没几个月就过期了！</span>
+								</div>
+							</div>
+							<div class="clear">
+								
+							</div>
+						</div>
+						<div class="criticism_con">
+							<img src="img/img_list9/touxiang.jpg"/>
+							<div class="criticism_con_right">
+								<div class="criticism_con_rightT">
+									<span>舒霖</span><span>2016-08-08 16:23</span>
+								</div>
+								<div class="criticism_con_rightB">
+									<span>挺好用的就是日期太靠后了没几个月就过期了！</span>
+								</div>
+							</div>
+							<div class="clear">
+								
+							</div>
+						</div>
+						<div class="criticism_con">
+							<img src="img/img_list9/touxiang.jpg"/>
+							<div class="criticism_con_right">
+								<div class="criticism_con_rightT">
+									<span>舒霖</span><span>2016-08-08 16:23</span>
+								</div>
+								<div class="criticism_con_rightB">
+									<span>挺好用的就是日期太靠后了没几个月就过期了！</span>
+								</div>
+							</div>
+							<div class="clear">
+								
+							</div>
+						</div>
+						<div class="criticism_con">
+							<img src="img/img_list9/touxiang.jpg"/>
+							<div class="criticism_con_right">
+								<div class="criticism_con_rightT">
+									<span>舒霖</span><span>2016-08-08 16:23</span>
+								</div>
+								<div class="criticism_con_rightB">
+									<span>挺好用的就是日期太靠后了没几个月就过期了！</span>
+								</div>
+							</div>
+							<div class="clear">
+								
+							</div>
+						</div>
+						<div class="criticism_con">
+							<img src="img/img_list9/touxiang.jpg"/>
+							<div class="criticism_con_right">
+								<div class="criticism_con_rightT">
+									<span>舒霖</span><span>2016-08-08 16:23</span>
+								</div>
+								<div class="criticism_con_rightB">
+									<span>挺好用的就是日期太靠后了没几个月就过期了！</span>
+								</div>
+							</div>
+							<div class="clear">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clear">
+					
+				</div>
+			</div>
+		</div>
+		<div class="foot">
+			<div class="foot_top">
+				<div class="foot_topM">
+					<div class="foot_topM_left">
+						<dl>
+							<dt>新手指南</dt>
+							<a href="#"><dd>购物流程</dd></a>
+							<a href="#"><dd>购物须知</dd></a>
+							<a href="#"><dd>联系客服</dd></a>
+							<a href="#"><dd>常见问题</dd></a>
+						</dl>
+						<dl>
+							<dt>支付方式</dt>
+							<a href="#"><dd>第三方平台支付</dd></a>
+							<a href="#"><dd>优惠券使用</dd></a>
+						</dl>
+						<dl>
+							<dt>售后服务</dt>
+							<a href="#"><dd>退款政策</dd></a>
+							<a href="#"><dd>退款流程</dd></a>
+							<a href="#"><dd>退款说明</dd></a>
+						</dl>
+						<dl>
+							<dt>商品配送</dt>
+							<a href="#"><dd>运费说明</dd></a>
+							<a href="#"><dd>配送范围</dd></a>
+							<a href="#"><dd>发货说明</dd></a>
+							<a href="#"><dd>物流查询</dd></a>
+						</dl>
+						<dl>
+							<dt>品牌保证</dt>
+							<a href="#"><dd>官方授权</dd></a>
+							<a href="#"><dd>海关监管</dd></a>
+							<a href="#"><dd>免税包邮</dd></a>
+							<a href="#"><dd>售后无忧</dd></a>
+						</dl>
+						<dl >
+							<dt>手机嗨淘全球</dt>
+							<dd class="last_dd" ><img src="img/foot.png"/></dd>
+						</dl>
+						<div class="clear">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="foot_middle">
+				<div class="foot_middleM">
+					<div class="foot_middleM_left">
+						<span><img src="img/dianhua.png"/></span>
+						<span>4008-006-006</span>
+					</div>
+					<div class="foot_middleM_right">
+						<ul>
+							<li><a href="#">公司简介</a></li>
+							<li><a href="#">联系我们</a></li>
+							<li><a href="#">大事记</a></li>
+							<li><a href="#">人才招募</a></li>
+							<li><a href="#">帮助中心</a></li>
+							<li><a href="#">法律说明</a></li>
+							<li><a href="#">合作专区</a></li>
+							<li><a href="#">友情链接</a></li>
+						</ul>
+					</div>
+					<div class="clear">
+						
+					</div>
+				</div>
+			</div>
+			<div class="foot_bottom">
+				<div class="foot_bottomM">
+					<div class="foot_bottomM_top">
+						<p>Copyright © 2010 - 2016, 版权所有 HITAO.TOP    湘ICP备10012668号-3  嗨淘全球网　|　<a href="#">营业执照</a></p>
+					</div>
+					<div class="foot_bottomM_right">
+						<a href="#"><img src="img/foot0.png"/></a>
+						<a href="#"><img src="img/foot1.png"/></a>
+						<a href="#"><img src="img/foot2.png"/></a>
+						<a href="#"><img src="img/foot3.png"/></a>
+						<a href="#"><img src="img/foot4.png"/></a>
+					</div>
+				</div>
+			</div>
+		</div>
+        {% endblock %}
+	</body>
+
+</html>
+>>>>>>> a36aa4bce93d11a07836f67b965861f5ca724ad5
